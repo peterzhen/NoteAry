@@ -2,7 +2,7 @@
 
 [NoteAry link][noteary]
 
-[noteary]: http://www.noteary.com
+[noteary]: https://github.com/peterzhen/NoteAry
 
 ## Minimum Viable Product
 
