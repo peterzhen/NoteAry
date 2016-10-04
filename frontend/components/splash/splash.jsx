@@ -11,12 +11,10 @@ class Splash extends React.Component {
   demoLogin(e){
     e.preventDefault();
     const demoUser = {username: "DemoAccount", password: "password"};
-    debugger
     this.props.login(demoUser);
   }
 
   render(){
-    debugger
     return(
       <nav className="login-signup">
         <Link to="/login" activeClassName="current">Login</Link>

@@ -13,7 +13,6 @@ class Home extends React.Component{
   }
 
   componentWillUpdate() {
-    debugger
   }
 
   render (){
