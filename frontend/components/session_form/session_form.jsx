@@ -8,6 +8,7 @@ class SessionForm extends React.Component {
 			username: "",
 			password: ""
 		};
+    this.errors = this.props.errors;
 		this.handleSubmit = this.handleSubmit.bind(this);
     this.clearForm = this.clearForm.bind(this);
 	}
@@ -50,15 +51,22 @@ class SessionForm extends React.Component {
   }
 
 	renderErrors() {
-		return(
-			<ul className="session-errors">
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
+    if ( this.errors !== this.props.errors ){
+      this.errors = this.props.errors;
+      return(
+        <ul className="session-errors">
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    } else {
+      return (
+        <div></div>
+      );
+    }
 	}
 
 	render() {

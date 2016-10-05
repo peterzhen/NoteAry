@@ -1,5 +1,5 @@
 .session-form-container {
-
+  background: #ededed;
 }
 
 .session-form-box {
@@ -37,6 +37,8 @@
   border: 1px solid lightgrey;
   padding: 20px;
   border-radius: 10px;
+  background: white;
+  box-shadow: 1px 1px 2px black;
 }
 
 .login-form > input {
@@ -74,7 +76,7 @@
   text-transform: uppercase;
   border-style: none;
   margin: 20px;
-  box-shadow: .1px .1px 2px black;
+  box-shadow: 1.5px 1.5px 2px black;
 }
 
 .session-submit:hover {
@@ -84,7 +86,7 @@
 }
 
 .session-errors {
-  color: red;
+  color: #d93434;
+  font-size: 14px;
   font-family: 'Varela Round';
-  text-shadow: .1px .1px 1px black;
 }
