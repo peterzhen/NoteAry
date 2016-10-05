@@ -35,8 +35,8 @@ class Splash extends React.Component {
 
   render(){
     return(
-      <nav className="login-signup">
-        <h1 className="splash-logo">NOTEary</h1>
+      <div className="login-signup">
+        <h1 className="splash-logo">NoteAry</h1>
         <section className="splash-buttons">
           <button className="splash-login-button" onClick={this.routeToLogin}>Log In</button>
           <br/>
@@ -44,7 +44,7 @@ class Splash extends React.Component {
           <br/>
           <button className="demo-login-button" onClick={this.demoLogin}>Demo</button>
         </section>
-      </nav>
+      </div>
     );
   }
 }

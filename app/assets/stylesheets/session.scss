@@ -1,0 +1,86 @@
+.session-form-container {
+
+}
+
+.session-form-box {
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px;
+}
+
+.nav-link {
+  float: right;
+  font-family: 'Varela Round';
+  padding: 15px 15px 0px 0px;
+  font-size: 18px;
+  color: grey;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: darkgrey;
+}
+
+.header-link {
+  font-family: 'Shrikhand';
+  font-size: 100px;
+  color: #2dbe60;
+  font-weight: lighter;
+  text-shadow: 1px 1px 2px black;
+  display: inline-block;
+}
+
+.login-form {
+  margin: 0 auto;
+  width: 400px;
+  border: 1px solid lightgrey;
+  padding: 20px;
+}
+
+.login-form > input {
+  display: inline-block;
+  box-sizing: content-box;
+  padding: 10px 20px;
+  width: 200px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  transition: 200ms;
+  font-family: 'Varela Round';
+  margin-top: 10px;
+  text-align: left;
+}
+
+.session-form-type {
+  font-family: 'Shrikhand';
+  font-size: 40px;
+  color: #2dbe60;
+  text-shadow: 1px 1px 2px black;
+}
+
+.session-submit {
+  border-radius: 11px;
+  font-family: 'Varela Round';
+  color: #ffffff;
+  width: 200px;
+  font-size: 18px;
+  background: #2dbe60;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-style: none;
+  margin: 20px;
+  box-shadow: .1px .1px 2px black;
+}
+
+.session-submit:hover {
+  background: #1ba34b;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.session-errors {
+  color: red;
+  font-family: 'Varela Round';
+  text-shadow: .1px .1px 1px black;
+}
