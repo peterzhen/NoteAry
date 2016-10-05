@@ -2,3 +2,34 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.splash-logo {
+  font-family: Courier;
+  font-size: 150px;
+  color: #2dbe60;
+  font-weight: lighter;
+}
+
+.splash-buttons > button  {
+  margin: 10px;
+  border-radius: 11px;
+  font-family: Arial;
+  color: #ffffff;
+  width: 300px;
+  font-size: 22px;
+  background: #2dbe60;
+  padding: 10px 40px 10px 40px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-style: none;
+}
+
+.splash-buttons > button:hover {
+  background: #1ba34b;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.splash-buttons {
+  margin-top: -130px;
+}

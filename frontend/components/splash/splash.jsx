@@ -6,6 +6,16 @@ class Splash extends React.Component {
   constructor(props){
     super(props);
     this.demoLogin = this.demoLogin.bind(this);
+    this.routeToLogin = this.routeToLogin.bind(this);
+    this.routeToSignup = this.routeToSignup.bind(this);
+  }
+
+  routeToLogin(e){
+    hashHistory.push("/login");
+  }
+
+  routeToSignup(e){
+    hashHistory.push("/signup");
   }
 
   demoLogin(e){
@@ -26,12 +36,14 @@ class Splash extends React.Component {
   render(){
     return(
       <nav className="login-signup">
-        <h1 className="splash-logo">NoteAry</h1>
-        <Link to="/login" className="splash-login">Login</Link>
-        <br/>
-        <Link to="/signup" className="splash-signup">Sign up!</Link>
-        <br/>
-        <button className="demo-login-button" onClick={this.demoLogin}>Demo</button>
+        <h1 className="splash-logo">NOTEary</h1>
+        <section className="splash-buttons">
+          <button className="splash-login-button" onClick={this.routeToLogin}>Log In</button>
+          <br/>
+          <button className="splash-signup-button" onClick={this.routeToSignup}>Sign Up</button>
+          <br/>
+          <button className="demo-login-button" onClick={this.demoLogin}>Demo</button>
+        </section>
       </nav>
     );
   }
