@@ -55,11 +55,11 @@ class SessionForm extends React.Component {
 
 	render() {
 		return (
-			<div className="login-form-container">
-				<form onSubmit={this.handleSubmit} className="login-form-box">
+			<div className="session-form-container">
+				<form onSubmit={this.handleSubmit} className="session-form-box">
           {this.navLink()}
           <br/>
-					<h1>NoteAry</h1>
+					<Link to="/" className="header-link"><h1>NoteAry</h1></Link>
 					<br/>
 
           <h2>{this.props.formType}</h2>

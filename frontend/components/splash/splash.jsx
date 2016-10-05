@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 
 class Splash extends React.Component {
@@ -9,17 +9,27 @@ class Splash extends React.Component {
   }
 
   demoLogin(e){
-    e.preventDefault();
-    const demoUser = {username: "DemoAccount", password: "password"};
+    const demoUser = { user: { username: "demo", password: "password" } };
     this.props.login(demoUser);
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.redirectIfLoggedIn(newProps);
+  }
+
+  redirectIfLoggedIn(newProps){
+    if ( newProps.loggedIn ) {
+      hashHistory.push("/home");
+    }
   }
 
   render(){
     return(
       <nav className="login-signup">
-        <Link to="/login" activeClassName="current">Login</Link>
+        <h1 className="splash-logo">NoteAry</h1>
+        <Link to="/login" className="splash-login">Login</Link>
         <br/>
-        <Link to="/signup" activeClassName="current">Sign up!</Link>
+        <Link to="/signup" className="splash-signup">Sign up!</Link>
         <br/>
         <button className="demo-login-button" onClick={this.demoLogin}>Demo</button>
       </nav>
