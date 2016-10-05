@@ -36,6 +36,7 @@
   width: 400px;
   border: 1px solid lightgrey;
   padding: 20px;
+  border-radius: 10px;
 }
 
 .login-form > input {
@@ -48,6 +49,9 @@
   transition: 200ms;
   font-family: 'Varela Round';
   margin-top: 10px;
+}
+
+.login-input{
   text-align: left;
 }
 
