@@ -11,6 +11,16 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :notes,
+  primary_key: :id,
+  foreign_key: :author_id,
+  class_name: "Note"
+
+  has_many :notebooks,
+  primary_key: :id,
+  foreign_key: :author_id,
+  class_name: "Notebook"
+  
   attr_reader :password
 
   after_initialize :ensure_session_token

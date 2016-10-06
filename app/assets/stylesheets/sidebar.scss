@@ -1,0 +1,96 @@
+.sidebar-container {
+  float: left;
+  background: #ededed;
+  width: 70px;
+  height: 100vh;
+  position: relative;
+}
+
+.sidebar-container > div {
+  padding: 6px 0;
+  width: 42px;
+  height: 36px;
+}
+
+.sidebar-container > div > button {
+  margin-top: -6px;
+  height: 36px;
+  width: 100%;
+}
+
+.sidebar-logo {
+  margin: 20px auto 20px;
+  background-image: image-url("sidebar-logo.png");
+  background-size: 36px 36px;
+  background-repeat: no-repeat;
+}
+
+.add-note-container {
+  margin: 0 auto;
+  display: block;
+  background-image: image-url("add-note-unclicked.png");
+  background-size: 36px 36px;
+  background-repeat: no-repeat;
+  transition: all .5s ease-in-out;
+}
+
+.add-note-container:hover {
+  background-image: image-url("add-note-clicked.png");
+  cursor: pointer;
+}
+
+.notes-container {
+  margin: 0 auto;
+  display: block;
+  background-image: image-url("notes-unclicked.png");
+  background-size: 36px 36px;
+  background-repeat: no-repeat;
+  transition: all .5s ease-in-out;
+}
+
+.notes-container:hover {
+  background-image: image-url("notes-clicked.png");
+  cursor: pointer;
+}
+
+.notebooks-container {
+  margin: 0 auto;
+  display: block;
+  background-image: image-url("notebooks-unclicked.png");
+  background-size: 36px 36px;
+  background-repeat: no-repeat;
+  transition: all .5s ease-in-out;
+}
+
+.notebooks-container:hover {
+  background-image: image-url("notebooks-clicked.png");
+  cursor: pointer;
+}
+
+.tags-container {
+  margin: 0 auto;
+  display: block;
+  background-image: image-url("tags-unclicked.png");
+  background-size: 36px 36px;
+  background-repeat: no-repeat;
+  transition: all .5s ease-in-out;
+}
+
+.tags-container:hover {
+  background-image: image-url("tags-clicked.png");
+  cursor: pointer;
+}
+
+.logout-container {
+  margin: 0 auto;
+  display: block;
+  background-image: image-url("notes-unclicked.png");
+  background-size: 36px 36px;
+  background-repeat: no-repeat;
+  transition: all .5s ease-in-out;
+}
+
+.logout-container:hover {
+  background-image: image-url("notes-clicked.png");
+  cursor: pointer;
+}
