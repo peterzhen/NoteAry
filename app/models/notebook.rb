@@ -22,5 +22,5 @@ class Notebook < ActiveRecord::Base
   class_name: "Note",
   dependent: :destroy
 
-  validates :title, :user presence: true
+  validates :title, :user, presence: true
 end
