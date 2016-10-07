@@ -1,0 +1,81 @@
+.index-container {
+  float: left;
+  width: 350px;
+  height: 100vh;
+  background: white;
+  border-right: 1px solid #ededed;
+  overflow: hidden;
+}
+
+.index-header {
+  font-family: 'Varela Round';
+  color: #a4a4a5;
+  height: 80px;
+  padding: 15px;
+  border-bottom: 1px solid #ededed;
+}
+
+.index-container-title {
+  padding-top: 10px;
+  font-size: 26px;
+  font-weight: lighter;
+}
+
+.notes-count {
+  font-size: 16px;
+  padding-top: 20px;
+  color: lightgrey;
+}
+
+.notes-index-list {
+  height: 87vh;
+  overflow-y: scroll;
+}
+
+.notes-index-list > div > ul > li:first-child{
+  border: 3px solid lightgrey;
+}
+
+.note-item-li {
+  height: 100px;
+  padding: 15px;
+  border-bottom: 1px solid #ededed;
+  transition: all .3s ease-in-out;
+  color: #7f7f7f;
+}
+
+.note-item-li:hover {
+  color: #ffffff;
+  background: #2dbe60;
+  cursor: pointer;
+}
+
+.note-item-title {
+  font-size: 18px;
+  font-family: 'Varela Round';
+  padding-bottom: 15px;
+  color:inherit;
+  font-weight: bold;
+}
+
+.note-item-body {
+  padding-top: 20px;
+  font-size: 14px;
+  font-family: 'Varela Round';
+  text-overflow: ellipsis;
+  color:inherit;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.delete-note-button{
+  float: right;
+  height: 20px;
+  width: 20px;
+  background-size: 20px 20px;
+  background-image: image-url("delete-note-unclicked.png");
+}
+
+.delete-note-button:hover {
+  background-image: image-url("delete-note-clicked.png");
+}

@@ -17,18 +17,22 @@ const NotesReducer = (state = _nullNotes, action) => {
 
     case RECEIVE_NOTES:
       const notes = action.notes;
-      return merge({}, _nullNotes, {
+      return merge({}, state, {
         notes
       });
 
     case RECEIVE_NOTE:
-      const newNote = {[action.note.id]: action.note};
-      return merge({}, _nullNotes, newNote);
+      let newState = merge({}, state);
+      const newNote = action.note;
+      newState.notes.unshift(newNote);
+      return newState;
 
     case REMOVE_NOTE:
-      let newState = Object.assign({}, state);
-      delete newState[action.note.id];
-      return newState;
+      return Object.assign(
+        {},
+        state,
+        {notes: state.notes.filter((note) => note.id != action.note.id)}
+      );
 
     case RECEIVE_ERRORS:
       console.log(action.errors);

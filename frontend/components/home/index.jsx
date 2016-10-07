@@ -1,5 +1,5 @@
 import React from 'react';
-import NotesList from './notes_list';
+import NotesListContainer from './notes_list_container';
 
 class Index extends React.Component {
   componentWillMount(){
@@ -16,12 +16,12 @@ class Index extends React.Component {
     return(
       <div className="index-container">
         <div className="index-header">
-          <h4>Notes</h4>
-          <h4>{`${noteCount} Notes`}</h4>
+          <div className="index-container-title">NOTES</div>
+          <div className="notes-count">{`${noteCount} notes`}</div>
         </div>
 
         <div className="notes-index-list">
-          <NotesList
+          <NotesListContainer
             notes={this.props.notes}
             currentUser={this.props.user}/>
         </div>

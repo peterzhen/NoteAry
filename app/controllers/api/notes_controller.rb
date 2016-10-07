@@ -1,7 +1,7 @@
 class Api::NotesController < ApplicationController
 
   def index
-    @notes = current_user.notes
+    @notes = current_user.notes.sort_by(&:created_at).reverse
     # @notes = current_notebook.notes
     render :index
   end

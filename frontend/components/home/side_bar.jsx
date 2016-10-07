@@ -12,7 +12,8 @@ class SideBar extends React.Component{
   }
 
   handleAddNote(e){
-    //
+    const defaultNote = {"note": { "title": "New Note", "body": "", "notebook_id": "1"}};
+    this.props.createNote(defaultNote);
   }
 
   handleNotes(e){
@@ -37,7 +38,7 @@ class SideBar extends React.Component{
         <div className="sidebar-logo"></div>
 
         <div className="add-note-container">
-          <button className="sidebar-addnote-button" onClick={this.handleLogout}></button>
+          <button className="sidebar-addnote-button" onClick={this.handleAddNote}></button>
 
         </div>
 

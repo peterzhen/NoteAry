@@ -4,6 +4,7 @@
   width: 70px;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .sidebar-container > div {
@@ -83,7 +84,6 @@
 
 .logout-container {
   margin: 0 auto;
-  display: block;
   background-image: image-url("notes-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
