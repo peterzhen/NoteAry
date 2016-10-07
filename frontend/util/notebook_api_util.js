@@ -1,4 +1,4 @@
-export const fetchNotebooks = (success, error) => {
+export const getNotebooks = (success, error) => {
 	$.ajax({
 		method: 'GET',
 		url: '/api/notebooks',

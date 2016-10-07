@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, hashHistory, Router, Route } from 'react-router';
 import SideBarContainer from './side_bar_container';
+import IndexContainer from './index_container';
 
 class Home extends React.Component{
   constructor(props){
@@ -22,6 +23,7 @@ class Home extends React.Component{
       return(
         <div>
           <SideBarContainer/>
+          <IndexContainer/>
         </div>
       );
     } else {

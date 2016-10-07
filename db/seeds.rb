@@ -15,7 +15,13 @@ Notebook.destroy_all
 notebook1 = Notebook.create(
                             title: "First Notebook",
                             author_id: demoUser.id,
-                            description: "Dev Notebook"
+                            description: "Dev Notebook 1"
+                            )
+
+notebook2 = Notebook.create(
+                            title: "Second Notebook",
+                            author_id: demoUser.id,
+                            description: "Dev Notebook 2"
                             )
 
 Note.destroy_all
@@ -25,4 +31,39 @@ note1 = Note.create(
                     body: "Congrats! This is your first note!",
                     author_id: demoUser.id,
                     notebook_id: notebook1.id
+                    )
+
+note2 = Note.create(
+                    title: "Second Note!",
+                    body: "Congrats! This is your second note!",
+                    author_id: demoUser.id,
+                    notebook_id: notebook1.id
+                    )
+
+note3 = Note.create(
+                    title: "Third Note!",
+                    body: "Congrats! This is your third note!",
+                    author_id: demoUser.id,
+                    notebook_id: notebook1.id
+                    )
+
+note4 = Note.create(
+                    title: "Fourth Note!",
+                    body: "Congrats! This is your fourth note!",
+                    author_id: demoUser.id,
+                    notebook_id: notebook2.id
+                    )
+
+note5 = Note.create(
+                    title: "Fifth Note!",
+                    body: "Congrats! This is your fifth note!",
+                    author_id: demoUser.id,
+                    notebook_id: notebook2.id
+                    )
+
+note6 = Note.create(
+                    title: "Sixth Note!",
+                    body: "Congrats! This is your sixth note!",
+                    author_id: demoUser.id,
+                    notebook_id: notebook2.id
                     )

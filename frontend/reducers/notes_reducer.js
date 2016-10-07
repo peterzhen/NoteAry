@@ -7,15 +7,23 @@ import {
 
 import merge from 'lodash/merge';
 
-const NotesReducer = (state = {}, action) => {
+const _nullNotes = Object.freeze({
+  notes: [],
+  errors: []
+});
+
+const NotesReducer = (state = _nullNotes, action) => {
   switch(action.type){
 
     case RECEIVE_NOTES:
-      return action.notes;
+      const notes = action.notes;
+      return merge({}, _nullNotes, {
+        notes
+      });
 
     case RECEIVE_NOTE:
       const newNote = {[action.note.id]: action.note};
-      return merge({}, state, newNote);
+      return merge({}, _nullNotes, newNote);
 
     case REMOVE_NOTE:
       let newState = Object.assign({}, state);

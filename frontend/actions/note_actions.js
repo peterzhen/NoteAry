@@ -8,9 +8,11 @@ export const DESTROY_NOTE = "DESTROY_NOTE";
 export const REMOVE_NOTE = "REMOVE_NOTE";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
-export const requestNotes = () => ({
+export const requestNotes = () => {
+  return ({
   type: REQUEST_NOTES
-});
+  });
+};
 
 export const receiveNotes = notes => ({
   type: RECEIVE_NOTES,

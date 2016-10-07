@@ -1,7 +1,8 @@
 class Api::NotesController < ApplicationController
 
   def index
-    @notes = current_notebook.notes
+    @notes = current_user.notes
+    # @notes = current_notebook.notes
     render :index
   end
 
