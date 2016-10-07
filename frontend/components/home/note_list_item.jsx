@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NoteItem extends React.Component {
+class NoteListItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
@@ -28,4 +28,4 @@ class NoteItem extends React.Component {
   }
 };
 
-export default NoteItem;
+export default NoteListItem;

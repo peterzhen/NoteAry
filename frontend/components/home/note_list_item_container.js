@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NoteItem from './note_item';
+import NoteListItem from './note_list_item';
 import { destroyNote } from '../../actions/note_actions';
 
 const mapDispatchToProps = dispatch => {
@@ -11,4 +11,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   null,
   mapDispatchToProps
-)(NoteItem);
+)(NoteListItem);

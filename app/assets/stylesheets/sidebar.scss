@@ -8,6 +8,7 @@
 }
 
 .sidebar-container > div {
+  margin-bottom: 20px;
   padding: 6px 0;
   width: 42px;
   height: 36px;
@@ -83,14 +84,15 @@
 }
 
 .logout-container {
+  display: block;
   margin: 0 auto;
-  background-image: image-url("notes-unclicked.png");
+  background-image: image-url("logout-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
   transition: all .5s ease-in-out;
 }
 
 .logout-container:hover {
-  background-image: image-url("notes-clicked.png");
+  background-image: image-url("logout-clicked.png");
   cursor: pointer;
 }

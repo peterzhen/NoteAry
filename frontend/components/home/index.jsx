@@ -9,9 +9,6 @@ class Index extends React.Component {
 
   render(){
     const noteCount = this.props.notes.length;
-    // const notebooks = this.props.notebooks.map((notebook) => (
-    //   <li>{notebook.title}</li>
-    // ));
 
     return(
       <div className="index-container">

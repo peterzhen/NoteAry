@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, hashHistory, Router, Route } from 'react-router';
 import SideBarContainer from './side_bar_container';
 import IndexContainer from './index_container';
+import NoteContainer from './note';
 
 class Home extends React.Component{
   constructor(props){
@@ -24,6 +25,7 @@ class Home extends React.Component{
         <div>
           <SideBarContainer/>
           <IndexContainer/>
+          <NoteContainer/>
         </div>
       );
     } else {
