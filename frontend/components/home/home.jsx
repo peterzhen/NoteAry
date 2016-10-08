@@ -22,7 +22,7 @@ class Home extends React.Component{
   render (){
     if (this.props.loggedIn) {
       return(
-        <div>
+        <div className="home-container">
           <SideBarContainer/>
           <IndexContainer/>
           <NoteContainer/>

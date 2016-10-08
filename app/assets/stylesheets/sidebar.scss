@@ -1,5 +1,5 @@
 .sidebar-container {
-  float: left;
+  flex-shrink: 0;
   background: #ededed;
   width: 70px;
   height: 100vh;
@@ -192,4 +192,14 @@
 
 .logout-button-container:hover .logout-button-tooltip{
   display: block;
+}
+
+.avatar-image-container {
+  margin: 0 auto;
+  transition: all .5s ease-in-out;
+}
+
+.avatar-image-container:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
