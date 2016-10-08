@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "node_modules/.bin/webpack --watch",
     "postinstall": "./node_modules/.bin/webpack"
   },
   "repository": {
@@ -30,6 +31,7 @@
     "deep-extend": "^0.4.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-quill": "git+https://github.com/zenoamaro/react-quill.git",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "redux": "^3.6.0",

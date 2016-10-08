@@ -1,10 +1,9 @@
 .sidebar-container {
-  float: left;
+  flex-shrink: 0;
   background: #ededed;
   width: 70px;
   height: 100vh;
   position: relative;
-  overflow: hidden;
 }
 
 .sidebar-container > div {
@@ -27,72 +26,180 @@
   background-repeat: no-repeat;
 }
 
-.add-note-container {
+.newnote-button-container {
   margin: 0 auto;
   display: block;
   background-image: image-url("add-note-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
   transition: all .5s ease-in-out;
+  position: relative;
 }
 
-.add-note-container:hover {
+.newnote-button-container:hover {
   background-image: image-url("add-note-clicked.png");
   cursor: pointer;
 }
 
-.notes-container {
+.newnote-button-tooltip{
+  display: none;
+  font-family: 'Varela Round';
+  font-size: 12px;
+  position: absolute;
+  color: #fff;
+  background: grey;
+  padding: 5px;
+  white-space: nowrap;
+  border-radius: 5px;
+  top: 5px;
+  left: 40px;
+}
+
+.newnote-button-container:hover .newnote-button-tooltip{
+  display: block;
+}
+
+.notes-button-container {
   margin: 0 auto;
   display: block;
   background-image: image-url("notes-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
   transition: all .5s ease-in-out;
+  position: relative;
 }
 
-.notes-container:hover {
+.notes-button-container:hover {
   background-image: image-url("notes-clicked.png");
   cursor: pointer;
 }
 
-.notebooks-container {
+.notes-button-tooltip{
+  display: none;
+  font-family: 'Varela Round';
+  font-size: 12px;
+  position: absolute;
+  color: #fff;
+  background: grey;
+  padding: 5px;
+  white-space: nowrap;
+  border-radius: 5px;
+  top: 5px;
+  left: 40px;
+}
+
+.notes-button-container:hover .notes-button-tooltip{
+  display: block;
+}
+
+
+.notebooks-button-container {
   margin: 0 auto;
   display: block;
   background-image: image-url("notebooks-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
   transition: all .5s ease-in-out;
+  position: relative;
 }
 
-.notebooks-container:hover {
+.notebooks-button-container:hover {
   background-image: image-url("notebooks-clicked.png");
   cursor: pointer;
 }
 
-.tags-container {
+.notebooks-button-tooltip{
+  display: none;
+  font-family: 'Varela Round';
+  font-size: 12px;
+  position: absolute;
+  color: #fff;
+  background: grey;
+  padding: 5px;
+  white-space: nowrap;
+  border-radius: 5px;
+  top: 5px;
+  left: 40px;
+}
+
+.notebooks-button-container:hover .notebooks-button-tooltip{
+  display: block;
+}
+
+
+.tags-button-container {
   margin: 0 auto;
   display: block;
   background-image: image-url("tags-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
   transition: all .5s ease-in-out;
+  position: relative;
 }
 
-.tags-container:hover {
+.tags-button-container:hover {
   background-image: image-url("tags-clicked.png");
   cursor: pointer;
 }
 
-.logout-container {
+.tags-button-tooltip{
+  display: none;
+  font-family: 'Varela Round';
+  font-size: 12px;
+  position: absolute;
+  color: #fff;
+  background: grey;
+  padding: 5px;
+  white-space: nowrap;
+  border-radius: 5px;
+  top: 5px;
+  left: 40px;
+}
+
+.tags-button-container:hover .tags-button-tooltip{
+  display: block;
+}
+
+
+.logout-button-container {
   display: block;
   margin: 0 auto;
   background-image: image-url("logout-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
   transition: all .5s ease-in-out;
+  position: relative;
 }
 
-.logout-container:hover {
+.logout-button-container:hover {
   background-image: image-url("logout-clicked.png");
+  cursor: pointer;
+}
+
+.logout-button-tooltip{
+  display: none;
+  font-family: 'Varela Round';
+  font-size: 12px;
+  position: absolute;
+  color: #fff;
+  background: grey;
+  padding: 5px;
+  white-space: nowrap;
+  border-radius: 5px;
+  top: 5px;
+  left: 40px;
+}
+
+.logout-button-container:hover .logout-button-tooltip{
+  display: block;
+}
+
+.avatar-image-container {
+  margin: 0 auto;
+  transition: all .5s ease-in-out;
+}
+
+.avatar-image-container:hover {
+  opacity: 0.6;
   cursor: pointer;
 }

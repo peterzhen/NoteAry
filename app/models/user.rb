@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   primary_key: :id,
   foreign_key: :author_id,
   class_name: "Notebook"
-  
+
   attr_reader :password
 
   after_initialize :ensure_session_token
@@ -28,6 +28,9 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :session_token, :username, uniqueness: true
+
+  has_attached_file :avatar, default_url: "default-avatar.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 
   def self.find_by_credentials(username, password)

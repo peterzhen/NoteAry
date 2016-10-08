@@ -41,6 +41,9 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
+  gem "paperclip", "~> 5.0.0"
+  gem 'figaro'
+  gem 'aws-sdk', '>= 2.0'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
