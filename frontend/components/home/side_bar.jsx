@@ -37,28 +37,29 @@ class SideBar extends React.Component{
       <div className="sidebar-container">
         <div className="sidebar-logo"></div>
 
-        <div className="add-note-container">
-          <button className="sidebar-addnote-button" onClick={this.handleAddNote}></button>
-
+        <div className="newnote-button-container">
+          <button className="sidebar-newnote-button" onClick={this.handleAddNote}></button>
+          <div className="newnote-button-tooltip">NEW NOTE</div>
         </div>
 
-        <div className="notes-container">
+        <div className="notes-button-container">
           <button className="sidebar-notes-button" onClick={this.handleLogout}></button>
-
+          <div className="notes-button-tooltip">ALL NOTES</div>
         </div>
 
-        <div className="notebooks-container">
+        <div className="notebooks-button-container">
           <button className="sidebar-notebooks-button" onClick={this.handleLogout}></button>
-
+          <div className="notebooks-button-tooltip">NOTEBOOKS</div>
         </div>
 
-        <div className="tags-container">
+        <div className="tags-button-container">
           <button className="sidebar-tags-button" onClick={this.handleLogout}></button>
-
+          <div className="tags-button-tooltip">TAGS</div>
         </div>
 
-        <div className="logout-container">
+        <div className="logout-button-container">
           <button className="sidebar-logout-button" onClick={this.handleLogout}></button>
+          <div className="logout-button-tooltip">LOG OUT</div>
         </div>
 
       </div>
