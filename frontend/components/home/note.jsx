@@ -13,19 +13,6 @@ class Note extends React.Component {
     return (e) => this.setState({[field]: e.target.value});
   }
 
-  // _autosave(content, delta) {
-  //   this.setState({body: content});
-  //   let changes = delta;
-  //   let note = this.state;
-  //   note.title = note.title || "Untitled";
-  //   if (this.props.note) {
-  //     setInterval(this.props.save({note}), 5000);
-  //   } else {
-  //     if (note.body.length > 10) {
-  //       setInterval(this.props.create({note}), 5000);
-  //     }
-  //   }
-  // }
   render() {
 
     return(
@@ -35,7 +22,7 @@ class Note extends React.Component {
           <input
             className="note-title-form"
             type='text'
-            placeholder='Title...'
+            placeholder='Title your note'
             onChange ={this.handleChange('title')}
             value={this.state.title} />
 
@@ -47,9 +34,6 @@ class Note extends React.Component {
             theme='snow'
             value={this.state.body}></ReactQuill>
         </div>
-
-
-
       </div>
     );
   }
