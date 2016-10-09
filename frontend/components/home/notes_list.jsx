@@ -6,6 +6,12 @@ class NotesList extends React.Component {
     super(props);
   }
 
+  componentWillReceiveProps(nextProps){
+    if ( !this.props.currentNote && nextProps.notes.length > 0){
+      this.props.switchNote(nextProps.notes[0]);
+    }
+  }
+
   renderNotes() {
     return(
       <ul className="note-item-ul">

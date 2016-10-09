@@ -16,6 +16,12 @@ class SideBar extends React.Component{
     this.props.createNote(defaultNote);
   }
 
+  componentWillReceiveProps(nextProps){
+    if (nextProps.notes.length > this.props.notes.length){
+      this.props.switchNote(nextProps.notes[0]);
+    }
+  }
+
   handleNotes(e){
     //
   }
@@ -43,17 +49,17 @@ class SideBar extends React.Component{
         </div>
 
         <div className="notes-button-container">
-          <button className="sidebar-notes-button" onClick={this.handleLogout}></button>
+          <button className="sidebar-notes-button" onClick={this.handleNotes}></button>
           <div className="notes-button-tooltip">ALL NOTES</div>
         </div>
 
         <div className="notebooks-button-container">
-          <button className="sidebar-notebooks-button" onClick={this.handleLogout}></button>
+          <button className="sidebar-notebooks-button" onClick={this.handleNotebooks}></button>
           <div className="notebooks-button-tooltip">NOTEBOOKS</div>
         </div>
 
         <div className="tags-button-container">
-          <button className="sidebar-tags-button" onClick={this.handleLogout}></button>
+          <button className="sidebar-tags-button" onClick={this.handleTags}></button>
           <div className="tags-button-tooltip">TAGS</div>
         </div>
 
