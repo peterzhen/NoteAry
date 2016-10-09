@@ -56,14 +56,17 @@
   padding-bottom: 15px;
   color:inherit;
   font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .note-item-body {
   padding-top: 20px;
   font-size: 14px;
   font-family: 'Varela Round';
-  text-overflow: ellipsis;
   color:inherit;
+  text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }

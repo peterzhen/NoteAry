@@ -4,6 +4,7 @@ export const REQUEST_NOTE = "REQUEST_NOTE";
 export const RECEIVE_NOTE = "RECEIVE_NOTE";
 export const SWITCH_NOTE = "SWITCH_NOTE";
 export const CREATE_NOTE = "CREATE_NOTE";
+export const RECEIVE_UPDATE = "RECEIVE_UPDATE";
 export const UPDATE_NOTE = "UPDATE_NOTE";
 export const DESTROY_NOTE = "DESTROY_NOTE";
 export const REMOVE_NOTE = "REMOVE_NOTE";
@@ -37,6 +38,11 @@ export const switchNote = note => ({
 
 export const createNote = note => ({
   type: CREATE_NOTE,
+  note
+});
+
+export const receiveUpdate = note => ({
+  type: RECEIVE_UPDATE,
   note
 });
 

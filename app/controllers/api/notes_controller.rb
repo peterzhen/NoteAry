@@ -1,8 +1,7 @@
 class Api::NotesController < ApplicationController
 
   def index
-    @notes = current_user.notes.sort_by(&:created_at).reverse
-    # @notes = current_notebook.notes
+    @notes = current_user.notes
     render :index
   end
 
@@ -24,7 +23,6 @@ class Api::NotesController < ApplicationController
 
   def update
     @note = current_user.notes.find(params[:id])
-
     if @note.update(note_params)
       render :show
     else
