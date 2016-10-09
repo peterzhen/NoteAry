@@ -24,6 +24,18 @@ class NoteListItem extends React.Component {
     }
   }
 
+  renderTitle(){
+    if (this.props.note.title === ""){
+      return (
+        <div className="empty-title">Untitled</div>
+      );
+    }else{
+      return (
+        <div>{this.props.note.title}</div>
+      );
+    }
+  }
+
   render() {
     let selected = "note-item-li"
     if (this.props.currentNote){
@@ -34,7 +46,7 @@ class NoteListItem extends React.Component {
     return (
       <li className={selected} onClick={this.handleSelectNote}>
         <div className="note-item-title">
-          {this.props.note.title}
+          {this.renderTitle()}
           <button
             className="delete-note-button"
             onClick={this.handleDelete}></button>

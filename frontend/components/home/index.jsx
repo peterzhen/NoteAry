@@ -13,7 +13,7 @@ class Index extends React.Component {
     return(
       <div className="index-container">
         <div className="index-header">
-          <div className="index-container-title">NOTES</div>
+          <div className="index-container-title">ALL NOTES</div>
           <div className="notes-count">{`${noteCount} notes`}</div>
         </div>
 

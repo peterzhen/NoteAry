@@ -22,5 +22,5 @@ class Note < ActiveRecord::Base
   foreign_key: :notebook_id,
   class_name: 'Notebook'
 
-  validates :title, :user, :notebook_id, presence: true
+  validates :user, :notebook_id, presence: true
 end
