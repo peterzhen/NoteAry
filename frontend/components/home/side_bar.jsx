@@ -12,7 +12,7 @@ class SideBar extends React.Component{
   }
 
   handleAddNote(e){
-    const defaultNote = {"note": { "title": "New Note", "body": "", "notebook_id": "1"}};
+    const defaultNote = {"note": { "title": "", "body": "", "notebook_id": "1"}};
     this.props.createNote(defaultNote);
   }
 

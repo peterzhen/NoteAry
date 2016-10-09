@@ -50,11 +50,23 @@
   cursor: pointer;
 }
 
-.note-item-title > div {
+.note-item-li:hover .note-item-title{
+  color: #ffffff;
+}
+
+.note-item-li:hover .empty-title{
+  color: #ffffff;
+  opacity: 1;
+}
+
+.note-item-li:hover .last-updated{
+  color: #ffffff;
+}
+
+.note-item-title {
   font-size: 18px;
   font-family: 'Varela Round';
-  padding-bottom: 15px;
-  color:inherit;
+  color: #2dbe60;
   font-weight: bold;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -63,6 +75,13 @@
 
 .empty-title {
   opacity: .5;
+  color: #7f7f7f;
+}
+
+.last-updated {
+  font-size: 12px;
+  font-family: 'Varela Round';
+  color: lightgrey;
 }
 
 .note-item-body {
@@ -80,6 +99,7 @@
   height: 25px;
   width: 25px;
   background-size: 25px 25px;
+  margin-top: -20px;
   background-image: image-url("delete-note-unclicked.png");
 }
 

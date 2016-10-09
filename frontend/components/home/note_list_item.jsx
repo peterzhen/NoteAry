@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'moment';
 
 class NoteListItem extends React.Component {
   constructor(props) {
@@ -27,13 +28,21 @@ class NoteListItem extends React.Component {
   renderTitle(){
     if (this.props.note.title === ""){
       return (
-        <div className="empty-title">Untitled</div>
+        <div className="empty-title">Untitled Note</div>
       );
     }else{
       return (
         <div>{this.props.note.title}</div>
       );
     }
+  }
+
+  renderBodyText(){
+    let body = document.createElement("div");
+    body.innerHTML = this.props.note.body;
+    // const bodyText = body.firstChild ? body.firstChild.textContent : body.textContent;
+    const bodyText = body.textContent;
+    return bodyText;
   }
 
   render() {
@@ -51,10 +60,12 @@ class NoteListItem extends React.Component {
             className="delete-note-button"
             onClick={this.handleDelete}></button>
         </div>
-
-        <p className="note-item-body">
-          {this.props.note.body}
-        </p>
+        <div className='last-updated'>
+          { Moment(this.props.note.updated_at).fromNow() }
+        </div>
+        <div className="note-item-body">
+          { this.renderBodyText() }
+        </div>
       </li>
     );
   }

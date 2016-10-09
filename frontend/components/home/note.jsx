@@ -10,6 +10,7 @@ class Note extends React.Component {
       body: ""
     }
     this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
   }
 
@@ -22,12 +23,15 @@ class Note extends React.Component {
   }
 
   handleSave(e){
-    e.preventDefault();
     this.props.updateNote(this.state);
   }
 
   handleTitleChange(e) {
     this.setState({ title: e.currentTarget.value })
+  }
+
+  handleBodyChange(text) {
+    this.setState({ body: text })
   }
 
   render() {
@@ -41,22 +45,26 @@ class Note extends React.Component {
       return(
         <div className='note-container'>
           <div className="note-header-container">
-            <form className="note-title-form" onSubmit={ this.handleSave }>
+            <div className="note-title-form">
               <input
                 className="note-title-form"
                 type='text'
                 placeholder='Title your note'
                 onChange ={this.handleTitleChange}
                 value={this.state.title} />
-              <input type='submit' className="note-save-button"></input>
-            </form>
+              <button
+                className="form-save-button"
+                onClick={ this.handleSave }>Save</button>
+            </div>
           </div>
 
           <div className="note-form-container">
             <ReactQuill
               ref='editor'
               theme='snow'
-              value={this.state.body}></ReactQuill>
+              value={this.state.body}
+              onChange={this.handleBodyChange}
+              getText={this.getText}></ReactQuill>
           </div>
         </div>
       );
