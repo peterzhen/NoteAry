@@ -14,8 +14,6 @@ class Note extends React.Component {
   componentWillReceiveProps(nextProps){
     if (nextProps.currentNote){
       this.setState(nextProps.currentNote);
-    } else {
-      this.setState({});
     }
   }
 
@@ -24,18 +22,24 @@ class Note extends React.Component {
   }
 
   render() {
-    if (this.state.title){
+    if(this.props.noteCount === 0) {
+      return (
+        <div className="note-container-empty">
+          <img src={window.notearyAssets.loadingNotebook}></img>
+        </div>
+      );
+    } else {
       return(
         <div className='note-container'>
-        <div className="note-header-container">
-          <input
-            className="note-title-form"
-            type='text'
-            placeholder='Title your note'
-            onChange ={this.handleChange('title')}
-            value={this.state.title} />
+          <div className="note-header-container">
+            <input
+              className="note-title-form"
+              type='text'
+              placeholder='Title your note'
+              onChange ={this.handleChange('title')}
+              value={this.state.title} />
 
-        </div>
+          </div>
 
           <div className="note-form-container">
             <ReactQuill
@@ -44,16 +48,6 @@ class Note extends React.Component {
               value={this.state.body}></ReactQuill>
           </div>
         </div>
-      );
-    } else if (this.props.noteCount === 0){
-      return (
-        <div>
-          <h1>You have no notes! Please add a new note by simply clicking the plus button on the left side bar</h1>
-        </div>
-      );
-    }else {
-      return (
-        <noscript></noscript>
       );
     }
   }

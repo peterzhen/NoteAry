@@ -14,3 +14,18 @@
   font-size: 30px;
   color: #2dbe60;
 }
+
+.note-container-empty {
+  position: relative;
+  width: 80vw;
+}
+
+.note-container-empty > img {
+  position: absolute;
+  display: block;
+  height: 128px;
+  width: 128px;
+  top: 35%;
+  left: 35%;
+  opacity: .7;
+}

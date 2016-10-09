@@ -68,15 +68,15 @@ class SideBar extends React.Component{
           <div className="logout-button-tooltip">LOG OUT</div>
         </div>
 
-        <div className="avatar-image-container">
-          <img src={this.props.user.avatar_url}></img>
-          <div></div>
-        </div>
-
       </div>
     );
   }
 }
+
+// <div className="avatar-image-container">
+//   <img src={this.props.user.avatar_url}></img>
+//   <div></div>
+// </div>
 
 
 export default SideBar;
