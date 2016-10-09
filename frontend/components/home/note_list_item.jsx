@@ -3,12 +3,13 @@ import React from 'react';
 class NoteListItem extends React.Component {
   constructor(props) {
     super(props);
+    this.deleted = false;
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSelectNote = this.handleSelectNote.bind(this);
   }
 
   handleSelectNote(){
-    if (this.props.currentNote){
+    if (this.props.currentNote && this.deleted === false){
       if (this.props.note.id !== this.props.currentNote.id){
         this.props.switchNote(this.props.note);
       }
@@ -16,8 +17,11 @@ class NoteListItem extends React.Component {
   }
 
   handleDelete(){
+    this.deleted = true;
     this.props.destroyNote(this.props.note);
-    this.props.switchNote(null);
+    if (this.props.note.id === this.props.currentNote.id){
+      this.props.switchNote(null);
+    }
   }
 
   render() {

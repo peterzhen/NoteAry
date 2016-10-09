@@ -4,20 +4,29 @@ import ReactQuill from 'react-quill';
 class Note extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {title: "", body: "", notebook_id: 1};
+    this.state = {
+      title: "",
+      body: ""
+    }
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps){
+    if (nextProps.currentNote){
+      this.setState(nextProps.currentNote);
+    } else {
+      this.setState({});
+    }
+  }
 
   handleChange(field) {
     return (e) => this.setState({[field]: e.target.value});
   }
 
   render() {
-
-    return(
-      <div className='note-container'>
-
+    if (this.state.title){
+      return(
+        <div className='note-container'>
         <div className="note-header-container">
           <input
             className="note-title-form"
@@ -28,14 +37,25 @@ class Note extends React.Component {
 
         </div>
 
-        <div className="note-form-container">
-          <ReactQuill
-            ref='editor'
-            theme='snow'
-            value={this.state.body}></ReactQuill>
+          <div className="note-form-container">
+            <ReactQuill
+              ref='editor'
+              theme='snow'
+              value={this.state.body}></ReactQuill>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else if (this.props.noteCount === 0){
+      return (
+        <div>
+          <h1>You have no notes! Please add a new note by simply clicking the plus button on the left side bar</h1>
+        </div>
+      );
+    }else {
+      return (
+        <noscript></noscript>
+      );
+    }
   }
 }
 

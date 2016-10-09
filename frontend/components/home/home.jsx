@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, hashHistory, Router, Route } from 'react-router';
 import SideBarContainer from './side_bar_container';
 import IndexContainer from './index_container';
-import NoteContainer from './note';
+import NoteContainer from './note_container';
 
 class Home extends React.Component{
   constructor(props){
