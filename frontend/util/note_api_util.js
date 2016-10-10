@@ -17,14 +17,11 @@ export const createNote = (note, success, error) => {
 	});
 };
 
-export const updateNote = (note, success, error) => {
+export const updateNote = (data, success, error) => {
 	$.ajax({
 		method: 'PATCH',
 		url: `/api/notes/${data.id}`,
-    data: {
-          title: note.title,
-          body: note.body
-          },
+    data: {note: data},
 		success,
 		error
 	});

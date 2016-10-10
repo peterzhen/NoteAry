@@ -35,14 +35,6 @@ class SessionForm extends React.Component {
 		this.props.processForm({user});
 	}
 
-	navLink() {
-		if (this.props.formType === "login") {
-			return <Link onClick={this.clearForm} to="/signup" className="nav-link">Sign Up</Link>;
-		} else {
-			return <Link onClick={this.clearForm} to="/login" className="nav-link">Log In</Link>;
-		}
-	}
-
   clearForm(){
     this.setState({
 			username: "",
@@ -71,34 +63,28 @@ class SessionForm extends React.Component {
 
 	render() {
 		return (
-			<div className="session-form-container">
-        {this.navLink()}
-				<form onSubmit={this.handleSubmit} className="session-form-box">
-          <br></br>
-					<Link to="/" className="header-link"><h1>NoteAry</h1></Link>
+			<form onSubmit={this.handleSubmit} className="session-form-box">
+				<div className="login-form">
+					<button
+						className="session-close-modal"
+						onClick={ this.props.closeModal }/>
+          <h2 className="session-form-type">{this.props.formType}</h2>
+						<input type="text"
+              placeholder="Username"
+							value={this.state.username}
+							onChange={this.update("username")}
+							className="login-input" />
 
-					<div className="login-form">
-            <h2 className="session-form-type">{this.props.formType}</h2>
-						<br/>
-							<input type="text"
-                placeholder="Username"
-								value={this.state.username}
-								onChange={this.update("username")}
-								className="login-input" />
+						<input type="password"
+              placeholder="Password"
+							value={this.state.password}
+							onChange={this.update("password")}
+							className="login-input" />
 
-						<br/>
-							<input type="password"
-                placeholder="Password"
-								value={this.state.password}
-								onChange={this.update("password")}
-								className="login-input" />
-
-						<br/>
-						<input className="session-submit" type="submit" value="Submit" />
-            { this.renderErrors() }
-					</div>
-				</form>
-			</div>
+					<input className="session-submit" type="submit" value="Submit" />
+          { this.renderErrors() }
+				</div>
+			</form>
 		);
 	}
 }

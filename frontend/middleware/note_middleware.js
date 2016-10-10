@@ -3,7 +3,7 @@ import {
         getNote,
         createNote,
         updateNote,
-        destroyNote
+        destroyNote,
       } from '../util/note_api_util.js'
 
 import {
@@ -11,6 +11,7 @@ import {
         requestNote,
         receiveNotes,
         receiveNote,
+        receiveUpdate,
         removeNote,
         receiveErrors,
         REQUEST_NOTES,
@@ -24,6 +25,7 @@ import {
 export default ({getState, dispatch}) => next => action => {
   const notesSuccess = notes => dispatch(receiveNotes(notes));
   const noteSuccess = note => dispatch(receiveNote(note));
+  const updateSuccess = note => dispatch(receiveUpdate(note));
   const noteRemoved = note => dispatch(removeNote(note));
   const noteError = xhr => {
     const errors = xhr.responseJSON;
@@ -41,7 +43,7 @@ export default ({getState, dispatch}) => next => action => {
       createNote(action.note, noteSuccess, noteError);
       break;
     case UPDATE_NOTE:
-      updateNote(action.note, noteSuccess, noteError);
+      updateNote(action.note, updateSuccess, noteError);
       break;
     case DESTROY_NOTE:
       destroyNote(action.note, noteRemoved, noteError);

@@ -32,7 +32,7 @@
   overflow-y: scroll;
 }
 
-.notes-index-list > div > ul > li:first-child{
+.notes-index-list > div > ul > .selected{
   border: 3px solid lightgrey;
 }
 
@@ -40,7 +40,7 @@
   height: 100px;
   padding: 15px;
   border-bottom: 1px solid #ededed;
-  transition: all .3s ease-in-out;
+  transition: background .3s ease-in-out;
   color: #7f7f7f;
 }
 
@@ -50,20 +50,46 @@
   cursor: pointer;
 }
 
+.note-item-li:hover .note-item-title{
+  color: #ffffff;
+}
+
+.note-item-li:hover .empty-title{
+  color: #ffffff;
+  opacity: 1;
+}
+
+.note-item-li:hover .last-updated{
+  color: #ffffff;
+}
+
 .note-item-title {
   font-size: 18px;
   font-family: 'Varela Round';
-  padding-bottom: 15px;
-  color:inherit;
+  color: #2dbe60;
   font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.empty-title {
+  opacity: .5;
+  color: #7f7f7f;
+}
+
+.last-updated {
+  font-size: 12px;
+  font-family: 'Varela Round';
+  color: lightgrey;
 }
 
 .note-item-body {
   padding-top: 20px;
   font-size: 14px;
   font-family: 'Varela Round';
-  text-overflow: ellipsis;
   color:inherit;
+  text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -73,6 +99,7 @@
   height: 25px;
   width: 25px;
   background-size: 25px 25px;
+  margin-top: -20px;
   background-image: image-url("delete-note-unclicked.png");
 }
 

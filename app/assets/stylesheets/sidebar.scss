@@ -4,6 +4,8 @@
   width: 70px;
   height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-container > div {
@@ -169,6 +171,7 @@
   background-repeat: no-repeat;
   transition: all .5s ease-in-out;
   position: relative;
+  justify-content: flex-end;
 }
 
 .logout-button-container:hover {

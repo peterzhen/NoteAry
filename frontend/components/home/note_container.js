@@ -1,5 +1,13 @@
 import { connect } from 'react-redux';
+import { updateNote } from '../../actions/note_actions';
 import Note from './note';
+
+const mapStateToProps = state => {
+  return ({
+    currentNote: state.notes.currentNote,
+    noteCount: state.notes.notes.length
+  });
+};
 
 const mapDispatchToProps = dispatch => {
   return ({
@@ -8,6 +16,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Note);
