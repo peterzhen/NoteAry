@@ -2,7 +2,7 @@ import React from 'react';
 import Moment from 'moment';
 import Modal from 'react-modal';
 import DeleteNotePrompt from './delete_note_prompt';
-import { DeleteModalStyle } from '../modal_styles/logout_modal_style';
+import { DeleteModalStyle } from '../modal_styles/delete_modal_style';
 
 class NoteListItem extends React.Component {
   constructor(props) {
