@@ -17,14 +17,11 @@ export const createNotebook = (notebook, success, error) => {
 	});
 };
 
-export const updateNotebook = (notebook, success, error) => {
+export const updateNotebook = (data, success, error) => {
 	$.ajax({
 		method: 'PATCH',
-		url: `/api/notebooks/${notebook.id}`,
-    data: {
-          title: notebook.title,
-          description: notebook.description
-          },
+		url: `/api/notebooks/${data.id}`,
+    data: { notebook: data },
 		success,
 		error
 	});

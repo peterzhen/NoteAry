@@ -2,17 +2,21 @@ import {
         RECEIVE_NOTEBOOKS,
         RECEIVE_NOTEBOOK,
         REMOVE_NOTEBOOK,
-        RECEIVE_ERRORS
+        RECEIVE_ERRORS,
+        RECEIVE_UPDATE,
+        SWITCH_NOTEBOOK
       } from '../actions/notebook_actions';
 
 import merge from 'lodash/merge';
 
 const _nullNotebooks = Object.freeze({
+  currentNotebook: null,
   notebooks: [],
   errors: []
 });
 
 const NotebooksReducer = (state = _nullNotebooks, action) => {
+  let newState
   switch(action.type){
 
     case RECEIVE_NOTEBOOKS:
@@ -22,13 +26,33 @@ const NotebooksReducer = (state = _nullNotebooks, action) => {
       });
 
     case RECEIVE_NOTEBOOK:
-      const newNote = {[action.notebook.id]: action.notebook};
-      return merge({}, state, newNote);
+      newState = merge({}, state);
+      const newNotebook = action.notebook;
+      newState.notebooks.unshift(newNotebook);
+      return newState;
+
+    case RECEIVE_UPDATE:
+      newState = merge({}, state)
+      const updatedNotebook = action.notebook;
+      state.notebooks.map( (notebook, idx) => {
+        if (notebook.id == updatedNotebook.id){
+          newState.notebooks[idx] = action.notebook;
+        }
+      });
+      return newState;
+
+    case SWITCH_NOTEBOOK:
+      newState = merge({}, state);
+      newState.currentNotebook = action.notebook;
+      return newState;
 
     case REMOVE_NOTEBOOK:
-      let newState = Object.assign({}, state);
-      delete newState[action.notebook.id];
-      return newState;
+    return Object.assign(
+      {},
+      state,
+      {notes: state.notesbooks.filter((notebook) =>
+      notebook.id != action.notebook.id)}
+    );
 
     case RECEIVE_ERRORS:
       console.log(action.errors);
