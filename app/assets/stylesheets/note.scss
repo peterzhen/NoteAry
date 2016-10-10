@@ -1,13 +1,22 @@
 .note-container {
   height: 60vh;
+  width: 60vw;
   padding: 20px;
-  margin: 0 auto;
 }
 
 .note-header-container {
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
   font-family: 'Varela Round';
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
 
+.note-form-container {
+  max-width: 840px;
+  margin: 0 auto;
 }
 
 .note-title-form {
@@ -28,4 +37,42 @@
   top: 35%;
   left: 35%;
   opacity: .7;
+}
+
+.form-save-container {
+  position: relative;
+}
+
+.form-save-button {
+  display: block;
+  background-repeat: no-repeat;
+  background-image: image-url("save-file-unclicked.png");
+  background-size: 35px 35px;
+  margin-top: 1px;
+  height: 35px;
+  width: 35px;
+  transition: all .3s ease-in-out;
+}
+
+.form-save-button:hover {
+  background-image: image-url("save-file-clicked.png");
+  cursor: pointer;
+}
+
+.save-button-tooltip {
+  display: none;
+  font-family: 'Varela Round';
+  font-size: 10px;
+  position: absolute;
+  color: #fff;
+  background: grey;
+  padding: 3px 5px;
+  white-space: nowrap;
+  border-radius: 5px;
+  top: 40px;
+  left: 0px;
+}
+
+.form-save-container:hover .save-button-tooltip {
+  display: block;
 }

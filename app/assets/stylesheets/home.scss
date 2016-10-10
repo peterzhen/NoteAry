@@ -3,3 +3,48 @@
   flex-wrap: nowrap;
   position: fixed;
 }
+
+.delete-note-prompt {
+  text-align: center;
+}
+
+.delete-note-prompt > div {
+  font-family: 'Varela Round';
+  font-size: 24px;
+  padding: 15px;
+  color: #7c7c7c;
+}
+
+.delete-note-prompt > button  {
+  border-radius: 11px;
+  font-family: 'Varela Round';
+  color: #ffffff;
+  width: 70px;
+  height: 25px;
+  font-size: 16px;
+  padding: 5px 30px 5px 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-style: none;
+  box-shadow: 1px 1px 2px black;
+  margin: 20px;
+  transition: background .3s ease-in-out;
+}
+
+.delete-note-cancel-button {
+  background: #adabab;
+}
+
+.delete-note-delete-button {
+  background: #2dbe60;
+}
+
+.delete-note-cancel-button:hover {
+  background: #919191;
+  cursor: pointer;
+}
+
+.delete-note-delete-button:hover {
+  background: #1ba34b;
+  cursor: pointer;
+}

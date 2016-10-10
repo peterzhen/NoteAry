@@ -1,12 +1,26 @@
 import React from 'react';
 import Moment from 'moment';
+import Modal from 'react-modal';
+import DeleteNotePrompt from './delete_note_prompt';
+import { DeleteModalStyle } from '../modal_styles/logout_modal_style';
 
 class NoteListItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { deleteModalOpen: false }
     this.deleted = false;
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSelectNote = this.handleSelectNote.bind(this);
+    this.openDeleteModal = this.openDeleteModal.bind(this);
+    this.closeDeleteModal = this.closeDeleteModal.bind(this);
+  }
+
+  openDeleteModal() {
+    this.setState({ deleteModalOpen: true });
+  }
+
+  closeDeleteModal() {
+    this.setState({ deleteModalOpen: false });
   }
 
   handleSelectNote(){
@@ -23,6 +37,7 @@ class NoteListItem extends React.Component {
     if (this.props.note.id === this.props.currentNote.id){
       this.props.switchNote(null);
     }
+    this.closeDeleteModal()
   }
 
   renderTitle(){
@@ -58,7 +73,7 @@ class NoteListItem extends React.Component {
           {this.renderTitle()}
           <button
             className="delete-note-button"
-            onClick={this.handleDelete}></button>
+            onClick={this.openDeleteModal}></button>
         </div>
         <div className='last-updated'>
           { Moment(this.props.note.updated_at).fromNow() }
@@ -66,6 +81,17 @@ class NoteListItem extends React.Component {
         <div className="note-item-body">
           { this.renderBodyText() }
         </div>
+
+        <Modal
+          isOpen={this.state.deleteModalOpen}
+          onRequestClose={this.closeDeleteModal}
+          style={ DeleteModalStyle }>
+
+          <DeleteNotePrompt
+            deleteNote={this.handleDelete}
+            closeModal={this.closeDeleteModal}/>
+        </Modal>
+
       </li>
     );
   }

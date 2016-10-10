@@ -45,16 +45,17 @@ class Note extends React.Component {
       return(
         <div className='note-container'>
           <div className="note-header-container">
-            <div className="note-title-form">
-              <input
-                className="note-title-form"
-                type='text'
-                placeholder='Title your note'
-                onChange ={this.handleTitleChange}
-                value={this.state.title} />
+            <input
+              className="note-title-form"
+              type='text'
+              placeholder='Title your note'
+              onChange ={this.handleTitleChange}
+              value={this.state.title} />
+            <div className="form-save-container">
               <button
                 className="form-save-button"
-                onClick={ this.handleSave }>Save</button>
+                onClick={ this.handleSave }></button>
+              <div className="save-button-tooltip">SAVE</div>
             </div>
           </div>
 
