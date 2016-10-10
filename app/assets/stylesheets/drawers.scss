@@ -1,0 +1,70 @@
+.notebooks-index-container {
+  padding: 20px;
+}
+
+.notebooks-index-header {
+  position: relative;
+  font-family: 'Varela Round';
+  font-size: 20px;
+  color: #a4a4a5;
+  height: 50px;
+  padding: 15px;
+  border-bottom: 1px solid #ededed;
+}
+
+.close-notebook-drawer-button {
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  background-image: image-url("close-unclicked.png");
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  transition: background .3s ease-in-out;
+  right: 0px;
+  top: -10px;
+}
+
+.close-notebook-drawer-button:hover {
+  background-image: image-url("close-clicked.png");
+}
+
+.notesbooks-index-list > ul > .selected {
+  background: #ededed;
+}
+
+.notesbooks-index-list > ul > .selected:hover {
+  background: #2dbe60;
+}
+
+.notebook-item-li {
+  height: 50px;
+  padding: 15px;
+  border-bottom: 1px solid #ededed;
+  transition: background .3s ease-in-out;
+  color: #7f7f7f;
+}
+
+.notebook-item-title {
+  font-size: 14px;
+  font-family: 'Varela Round';
+  color: #2dbe60;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-bottom: 2px;
+}
+
+.notebook-item-li:hover {
+  color: #ffffff;
+  background: #2dbe60;
+  cursor: pointer;
+}
+
+.notebook-item-li:hover .notebook-item-title {
+  color: #ffffff;
+}
+
+.notebook-item-li:hover .last-updated {
+  color: #ffffff;
+}

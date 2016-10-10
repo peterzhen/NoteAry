@@ -1,14 +1,31 @@
 import React from 'react';
-import { Link, hashHistory, Router, Route } from 'react-router';
+import Drawer from 'react-motion-drawer';
+import NotebookListContainer from './notebooks/notebook_list_container';
 
 class SideBar extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+      notebookDrawerOpen: false,
+      noOverlay: false
+    };
+
+    this.toggleNotebookDrawer = this.toggleNotebookDrawer.bind(this);
+    this.closeNotebookDrawer = this.closeNotebookDrawer.bind(this);
+
     this.handleAddNote = this.handleAddNote.bind(this);
     this.handleNotes = this.handleNotes.bind(this);
     this.handleNotebooks = this.handleNotebooks.bind(this);
     this.handleTags = this.handleTags.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  toggleNotebookDrawer() {
+    this.setState({ notebookDrawerOpen: !this.state.notebookDrawerOpen });
+  }
+
+  closeNotebookDrawer() {
+    this.setState({ notebookDrawerOpen: false });
   }
 
   handleAddNote(e){
@@ -27,7 +44,7 @@ class SideBar extends React.Component{
   }
 
   handleNotebooks(e){
-    //
+    this.toggleNotebookDrawer();
   }
 
   handleTags(e){
@@ -39,6 +56,11 @@ class SideBar extends React.Component{
   }
 
   render (){
+    const style = {
+      background: 'white',
+      boxShadow: 'rgba(0, 0, 0, 0.188235) 0px 10px 20px, rgba(0, 0, 0, 0.227451) 0px 6px 6px'
+    };
+
     return(
       <div className="sidebar-container">
         <div className="sidebar-logo"></div>
@@ -68,15 +90,18 @@ class SideBar extends React.Component{
           <div className="logout-button-tooltip">LOG OUT</div>
         </div>
 
+        <Drawer
+          className="notebooks-drawer"
+          drawerStyle={style}
+          open={this.state.notebookDrawerOpen}
+          onChange={open => this.setState({ notebookDrawerOpen: open})}
+          width={420}>
+          <NotebookListContainer closeNotebookDrawer={ this.closeNotebookDrawer }/>
+        </Drawer>
+
       </div>
     );
   }
 }
-
-// <div className="avatar-image-container">
-//   <img src={this.props.user.avatar_url}></img>
-//   <div></div>
-// </div>
-
 
 export default SideBar;
