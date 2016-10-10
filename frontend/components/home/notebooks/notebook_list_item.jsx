@@ -24,8 +24,10 @@ class NotebookListItem extends React.Component {
   }
 
   handleSelectNotebook(){
-    if (this.props.currentNotebook && this.deleted === false){
-      if (this.props.notebook.id !== this.props.currentNotebook.id){
+    if (this.deleted === false){
+      if (!this.props.currentNotebook){
+        this.props.switchNotebook(this.props.notebook);
+      }else if(this.props.notebook.id !== this.props.currentNotebook.id){
         this.props.switchNotebook(this.props.notebook);
       }
     }

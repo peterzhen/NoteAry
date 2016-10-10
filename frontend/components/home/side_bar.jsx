@@ -40,7 +40,7 @@ class SideBar extends React.Component{
   }
 
   handleNotes(e){
-    //
+    this.props.switchNotebook(null);
   }
 
   handleNotebooks(e){

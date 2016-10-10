@@ -7,9 +7,9 @@ class NotebooksList extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if ( !this.props.currentNotebook && nextProps.notebooks.length > 0){
-      this.props.switchNotebook(nextProps.notebooks[0]);
-    }
+    // if ( !this.props.currentNotebook && nextProps.notebooks.length > 0){
+    //   this.props.switchNotebook(nextProps.notebooks[0]);
+    // }
   }
 
   renderNotebooks() {

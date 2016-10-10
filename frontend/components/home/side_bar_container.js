@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import { createNote, requestNotes, switchNote } from '../../actions/note_actions';
+import { switchNotebook } from '../../actions/notebook_actions';
 import SideBar from './side_bar';
 
 const mapStateToProps = state => {
@@ -16,7 +17,8 @@ const mapDispatchToProps = dispatch => {
     createNote: note => dispatch(createNote(note)),
     requestNotes: () => dispatch(requestNotes()),
     requestNotebooks: () => dispatch(requestNotebooks()),
-    switchNote: note => dispatch(switchNote(note))
+    switchNote: note => dispatch(switchNote(note)),
+    switchNotebook: notebook => dispatch(switchNotebook(notebook))
   });
 };
 

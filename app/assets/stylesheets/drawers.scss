@@ -6,7 +6,7 @@
   position: relative;
   font-family: 'Varela Round';
   font-size: 20px;
-  color: #a4a4a5;
+  color: #7f7f7f;
   height: 50px;
   padding: 15px;
   border-bottom: 1px solid #ededed;
@@ -29,7 +29,7 @@
 }
 
 .notesbooks-index-list > ul > .selected {
-  background: #ededed;
+  background: #f2f2f2;
 }
 
 .notesbooks-index-list > ul > .selected:hover {
@@ -53,6 +53,10 @@
   overflow: hidden;
   white-space: nowrap;
   padding-bottom: 2px;
+}
+
+.notebook-item-li > .last-updated {
+  color: #7f7f7f;
 }
 
 .notebook-item-li:hover {
