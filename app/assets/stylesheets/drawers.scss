@@ -72,3 +72,47 @@
 .notebook-item-li:hover .last-updated {
   color: #ffffff;
 }
+
+.add-notebook-button {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 32px;
+  background-image: image-url("add-note-unclicked.png");
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  transition: all .5s ease-in-out;
+  right: 0px;
+  top: 30px;
+}
+
+.add-notebook-button:hover {
+  background-image: image-url("add-note-clicked.png");
+  cursor: pointer;
+}
+
+// .add-notebook-button-container {
+//   position: relative;
+// }
+//
+// .add-notebook-button-tooltip {
+//   position: relative;
+// }
+//
+// .add-notebook-button-tooltip{
+//   display: none;
+//   font-family: 'Varela Round';
+//   font-size: 12px;
+//   position: absolute;
+//   color: #fff;
+//   background: grey;
+//   padding: 5px;
+//   white-space: nowrap;
+//   border-radius: 5px;
+//   top: 5px;
+//   left: 40px;
+// }
+//
+// .add-notebook-button:hover .add-notebook-button-tooltip{
+//   display: block;
+// }

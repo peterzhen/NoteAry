@@ -7,7 +7,9 @@ import SideBar from './side_bar';
 const mapStateToProps = state => {
   return ({
     user: state.session.currentUser,
-    notes: state.notes.notes
+    currentNotebook: state.notebooks.currentNotebook,
+    notes: state.notes.notes,
+    notebooks: state.notebooks.notebooks
   });
 };
 

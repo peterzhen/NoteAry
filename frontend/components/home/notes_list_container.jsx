@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import NotesList from './notes_list';
 import { destroyNote, switchNote } from '../../actions/note_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = ( state, ownProps ) => {
   const sortedNotes = state.notes.notes.sort( (a,b) => {
     let aDate = new Date(a.updated_at);
     let bDate = new Date(b.updated_at);
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
   });
   return ({
     currentNote: state.notes.currentNote,
-    notes: sortedNotes
+    notes: ownProps.notes
   });
 };
 

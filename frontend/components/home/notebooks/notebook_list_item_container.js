@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import NotebookListItem from './notebook_list_item';
-import { destroyNotebook, switchNotebook } from '../../../actions/notebook_actions';
+import { destroyNotebook, switchNotebook, createNotebook } from '../../../actions/notebook_actions';
 
 const mapStateToProps = state => {
   return ({
@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = ( dispatch, ownProps ) => {
   return ({
     destroyNotebook: notebook => dispatch(destroyNotebook(notebook)),
-    switchNotebook: notebook => dispatch(switchNotebook(notebook))
+    switchNotebook: notebook => dispatch(switchNotebook(notebook)),
+    createNotebook: notebook => dispatch(createNotebook(notebook))
   });
 };
 
