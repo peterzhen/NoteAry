@@ -11,6 +11,7 @@ import {
         requestNotebook,
         receiveNotebooks,
         receiveNotebook,
+        receiveNotebookUpdate,
         removeNotebook,
         receiveErrors,
         REQUEST_NOTEBOOKS,
@@ -22,9 +23,10 @@ import {
 
 
 export default ({getState, dispatch}) => next => action => {
-  const notebooksSuccess = notes => dispatch(receiveNotebooks(notes));
-  const notebookSuccess = note => dispatch(receiveNotebook(note));
-  const notebookRemoved = note => dispatch(removeNotebook(note));
+  const notebooksSuccess = notebooks => dispatch(receiveNotebooks(notebooks));
+  const notebookSuccess = notebook => dispatch(receiveNotebook(notebook));
+  const updateSuccess = notebook => dispatch(receiveNotebookUpdate(notebook));
+  const notebookRemoved = notebook => dispatch(removeNotebook(notebook));
   const notebookError = xhr => {
     const errors = xhr.responseJSON;
     dispatch(receiveErrors(errors));
@@ -41,7 +43,7 @@ export default ({getState, dispatch}) => next => action => {
       createNotebook(action.notebook, notebookSuccess, notebookError);
       break;
     case UPDATE_NOTEBOOK:
-      updateNotebook(action.notebook, notebookSuccess, notebookError);
+      updateNotebook(action.notebook, updateSuccess, notebookError);
       break;
     case DESTROY_NOTEBOOK:
       destroyNotebook(action.notebook, notebookRemoved, notebookError);

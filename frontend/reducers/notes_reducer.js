@@ -3,7 +3,7 @@ import {
         RECEIVE_NOTE,
         REMOVE_NOTE,
         RECEIVE_ERRORS,
-        RECEIVE_UPDATE,
+        RECEIVE_NOTE_UPDATE,
         SWITCH_NOTE
         } from '../actions/note_actions';
 
@@ -31,7 +31,7 @@ const NotesReducer = (state = _nullNotes, action) => {
       newState.notes.unshift(newNote);
       return newState;
 
-    case RECEIVE_UPDATE:
+    case RECEIVE_NOTE_UPDATE:
       newState = merge({}, state)
       const updatedNote = action.note;
       state.notes.map( (note, idx) => {

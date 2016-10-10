@@ -11,7 +11,7 @@ import {
         requestNote,
         receiveNotes,
         receiveNote,
-        receiveUpdate,
+        receiveNoteUpdate,
         removeNote,
         receiveErrors,
         REQUEST_NOTES,
@@ -25,7 +25,7 @@ import {
 export default ({getState, dispatch}) => next => action => {
   const notesSuccess = notes => dispatch(receiveNotes(notes));
   const noteSuccess = note => dispatch(receiveNote(note));
-  const updateSuccess = note => dispatch(receiveUpdate(note));
+  const updateSuccess = note => dispatch(receiveNoteUpdate(note));
   const noteRemoved = note => dispatch(removeNote(note));
   const noteError = xhr => {
     const errors = xhr.responseJSON;

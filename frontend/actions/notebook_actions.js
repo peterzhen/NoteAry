@@ -2,7 +2,9 @@ export const REQUEST_NOTEBOOKS = "REQUEST_NOTEBOOKS";
 export const RECEIVE_NOTEBOOKS = "RECEIVE_NOTEBOOKS";
 export const REQUEST_NOTEBOOK = "REQUEST_NOTEBOOK";
 export const RECEIVE_NOTEBOOK = "RECEIVE_NOTEBOOK";
+export const SWITCH_NOTEBOOK = "SWITCH_NOTEBOOK";
 export const CREATE_NOTEBOOK = "CREATE_NOTEBOOK";
+export const RECEIVE_NOTEBOOK_UPDATE = "RECEIVE_NOTEBOOK_UPDATE";
 export const UPDATE_NOTEBOOK = "UPDATE_NOTEBOOK";
 export const DESTROY_NOTEBOOK = "DESTROY_NOTEBOOK";
 export const REMOVE_NOTEBOOK = "REMOVE_NOTEBOOK";
@@ -28,8 +30,18 @@ export const receiveNotebook = (notebook) => ({
   notebook
 });
 
+export const switchNotebook = notebook => ({
+  type: SWITCH_NOTEBOOK,
+  notebook
+});
+
 export const createNotebook = notebook => ({
   type: CREATE_NOTEBOOK,
+  notebook
+});
+
+export const receiveNotebookUpdate = notebook => ({
+  type: RECEIVE_NOTEBOOK_UPDATE,
   notebook
 });
 

@@ -9,6 +9,7 @@ class Note extends React.Component {
       title: "",
       body: ""
     }
+    this.saveTimer;
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
@@ -27,11 +28,15 @@ class Note extends React.Component {
   }
 
   handleTitleChange(e) {
+    clearTimeout(this.saveTimer);
     this.setState({ title: e.currentTarget.value })
+    this.saveTimer = setTimeout( this.handleSave, 2000);
   }
 
   handleBodyChange(text) {
+    clearTimeout(this.saveTimer);
     this.setState({ body: text })
+    this.saveTimer = setTimeout( this.handleSave, 2000);
   }
 
   render() {
