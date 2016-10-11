@@ -8,7 +8,6 @@ class NoteListItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = { deleteModalOpen: false }
-    this.deleted = false;
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSelectNote = this.handleSelectNote.bind(this);
     this.openDeleteModal = this.openDeleteModal.bind(this);
@@ -16,20 +15,16 @@ class NoteListItem extends React.Component {
   }
 
   openDeleteModal(e) {
-    this.deleted = true;
+    e.stopPropagation();
     this.setState({ deleteModalOpen: true });
   }
 
   closeDeleteModal(e) {
-    this.deleted = false;
     this.setState({ deleteModalOpen: false });
   }
 
   handleSelectNote(e){
-    // if (!e) var e = window.event;
-    // e.cancelBubble = true;
-    // if (e.stopPropagation) e.stopPropagation();
-    if (this.props.currentNote && this.deleted === false){
+    if (this.props.currentNote){
       if (this.props.note.id !== this.props.currentNote.id){
         this.props.switchNote(this.props.note);
       }

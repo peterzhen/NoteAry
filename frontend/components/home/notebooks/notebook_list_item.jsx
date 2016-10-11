@@ -13,7 +13,6 @@ class NotebookListItem extends React.Component {
       deleteModalOpen: false,
       updateModalOpen: false
      }
-    this.deleted = false;
 
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSelectNotebook = this.handleSelectNotebook.bind(this);
@@ -23,49 +22,53 @@ class NotebookListItem extends React.Component {
     this.closeUpdateModal = this.closeUpdateModal.bind(this);
   }
 
-  openDeleteModal() {
-    this.deleted = true;
+  openDeleteModal(e) {
+    e.stopPropagation();
     this.setState({ deleteModalOpen: true });
   }
 
-  closeDeleteModal() {
-    this.deleted = false;
+  closeDeleteModal(e) {
     this.setState({ deleteModalOpen: false });
   }
 
-  openUpdateModal() {
+  openUpdateModal(e) {
+    e.stopPropagation();
     this.setState({ updateModalOpen: true });
   }
 
-  closeUpdateModal() {
+  closeUpdateModal(e) {
     this.setState({ updateModalOpen: false });
   }
 
-  handleSelectNotebook(){
-    if (this.deleted === false){
-      if (!this.props.currentNotebook){
-        this.props.switchNotebook(this.props.notebook);
-        this.props.closeDrawer();
-      }else if(this.props.notebook.id !== this.props.currentNotebook.id){
-        this.props.switchNotebook(this.props.notebook);
-        this.props.closeDrawer();
-      }
+  handleSelectNotebook(e){
+    if (!this.props.currentNotebook){
+      this.props.switchNotebook(this.props.notebook);
+      this.props.closeDrawer();
+    }else if(this.props.notebook.id !== this.props.currentNotebook.id){
+      this.props.switchNotebook(this.props.notebook);
+      this.props.closeDrawer();
     }
   }
 
-  handleDelete(){
+  handleDelete(e){
     if (this.props.currentNotebook){
       if (this.props.notebook.id === this.props.currentNotebook.id){
         this.props.switchNotebook(null);
       }
     }
+    let notes = this.props.notes.filter( note => note.notebook_id === this.props.notebook.id );
+    notes.map( note => {
+      if ( note.id === this.props.currentNote.id ){
+        this.props.switchNote(null);
+      }
+    });
     this.props.destroyNotebook(this.props.notebook);
     this.props.requestNotes();
     this.closeDeleteModal()
   }
 
   renderNoteCount(){
-    const notes = this.props.notes.filter( note => note.notebook_id === this.props.notebook.id )
+    let notes = this.props.notes.filter( note => note.notebook_id === this.props.notebook.id );
     const noteCount = notes.length;
     return `${ noteCount } Notes`;
   }

@@ -18,6 +18,7 @@ class Note extends React.Component {
   componentWillReceiveProps(nextProps){
     if (nextProps.currentNote){
       if (nextProps.currentNote.id !== this.state.id){
+        if (this.props.currentNote) this.handleSave();
         this.setState(nextProps.currentNote);
       }
     }

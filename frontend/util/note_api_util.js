@@ -7,11 +7,11 @@ export const getNotes = (success, error) => {
 	});
 };
 
-export const createNote = (note, success, error) => {
+export const createNote = (data, success, error) => {
 	$.ajax({
 		method: 'POST',
 		url: '/api/notes',
-    data: note,
+    data: {note: data},
 		success,
 		error
 	});
@@ -36,10 +36,10 @@ export const getNote = (id, success, error) => {
 	});
 };
 
-export const destroyNote = (note, success, error) => {
+export const destroyNote = (data, success, error) => {
 	$.ajax({
 		method: 'DELETE',
-		url: `/api/notes/${note.id}`,
+		url: `/api/notes/${data.id}`,
 		success,
 		error
 	});

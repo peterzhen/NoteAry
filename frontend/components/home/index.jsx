@@ -14,7 +14,6 @@ class Index extends React.Component {
     }
 
     return(
-
       <div className="index-container">
         <div className="index-header">
           <div className="index-container-title">{ indexTitle }</div>
