@@ -16,8 +16,12 @@
 }
 
 .index-container-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   padding-top: 10px;
   font-size: 26px;
+  width: 300px;
   font-weight: lighter;
 }
 

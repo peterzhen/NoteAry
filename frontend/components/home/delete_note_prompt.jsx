@@ -2,13 +2,13 @@ import React from 'react';
 
 const DeleteNotePrompt = ({ deleteNote, closeModal }) => {
   return(
-    <div className="delete-note-prompt">
+    <div className="delete-prompt">
       <div>Are you sure you want to delete this note?</div>
       <button
-        className="delete-note-cancel-button"
+        className="cancel-button"
         onClick={ closeModal }>Cancel</button>
       <button
-        className="delete-note-delete-button"
+        className="delete-button"
         onClick={ deleteNote }>DELETE</button>
     </div>
   );

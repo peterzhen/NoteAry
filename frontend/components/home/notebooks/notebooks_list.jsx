@@ -1,8 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import NotebookListItemContainer from './notebook_list_item_container';
-import DeleteNotePrompt from '../delete_note_prompt';
-import { DeleteModalStyle } from '../../modal_styles/delete_modal_style';
+import CreateNotebookPromptContainer from './create_notebook_prompt_container';
+import { NotebookFormModalStyle } from '../../modal_styles/create_notebook_modal_style';
 
 class NotebooksList extends React.Component {
   constructor(props) {
@@ -29,7 +29,8 @@ class NotebooksList extends React.Component {
         {this.props.notebooks.map((notebook, idx) => (
           <NotebookListItemContainer
             key={`notebook-${idx}`}
-            notebook={ notebook } />
+            notebook={ notebook }
+            closeDrawer={ this.props.closeNotebookDrawer } />
         ))}
       </ul>
     );
@@ -40,7 +41,7 @@ class NotebooksList extends React.Component {
       <div className="notebooks-index-container">
         <div className="notebooks-index-header">
           <div className="notebooks-index-title">NOTEBOOKS</div>
-
+          <div className="notebooks-count">{`${this.props.notebooks.length} Notebooks`}</div>
           <div className="add-notebook-button-container">
             <button
               className="add-notebook-button"
@@ -62,10 +63,10 @@ class NotebooksList extends React.Component {
         <Modal
           isOpen={this.state.notebookModalOpen}
           onRequestClose={this.closeNotebookModal}
-          style={ DeleteModalStyle }>
+          style={ NotebookFormModalStyle }>
 
-          <DeleteNotePrompt
-            closeModal={this.closeDeleteModal}/>
+          <CreateNotebookPromptContainer
+            closeModal={this.closeNotebookModal}/>
         </Modal>
 
       </div>

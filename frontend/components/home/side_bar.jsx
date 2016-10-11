@@ -43,6 +43,14 @@ class SideBar extends React.Component{
     }
   }
 
+  // componentDidUpdate(){
+  //   if ( nextProps.notebooks.length === 0 ){
+  //     debugger
+  //     const defaultNotebook = { "notebook": { "title": "Notes", "description": "Default notebook" }};
+  //     this.props.createNotebook(defaultNotebook);
+  //   }
+  // }
+
   handleNotes(e){
     this.props.switchNotebook(null);
   }

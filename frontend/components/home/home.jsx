@@ -10,8 +10,8 @@ class Home extends React.Component{
   }
 
   componentWillMount(){
-    this.props.requestNotes();
     this.props.requestNotebooks();
+    this.props.requestNotes();
   }
 
   componentWillReceiveProps(newProps) {

@@ -35,7 +35,6 @@ const NotebooksReducer = (state = _nullNotebooks, action) => {
       newState = merge({}, state)
       const updatedNotebook = action.notebook;
       state.notebooks.map( (notebook, idx) => {
-        debugger
         if (notebook.id === updatedNotebook.id){
           newState.notebooks[idx] = updatedNotebook;
         }
@@ -51,7 +50,7 @@ const NotebooksReducer = (state = _nullNotebooks, action) => {
     return Object.assign(
       {},
       state,
-      {notes: state.notesbooks.filter((notebook) =>
+      {notebooks: state.notebooks.filter((notebook) =>
       notebook.id != action.notebook.id)}
     );
 

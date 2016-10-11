@@ -1,0 +1,70 @@
+.notebook-form-box {
+  position: relative;
+  margin: 20px;
+  text-align: center;
+}
+
+.add-notebook-label {
+  font-size: 16px;
+  font-family: 'Varela Round';
+  color: lightgrey;;
+  padding: 10px;
+}
+
+.notebook-form > input {
+  font-family: 'Varela Round';
+}
+
+.notebook-title-input {
+  margin-top: 10px;
+  padding: 20px 0px 5px 0px;
+  font-size: 30px;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+
+}
+
+.notebook-description-input {
+  padding: 20px 0px 5px 0px;
+  margin: 15px 0px 20px 0px;
+  width: 60%;
+  border-bottom: 1px solid lightgrey;
+}
+
+.notebook-close-modal {
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  background-image: image-url("close-unclicked.png");
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  transition: background .3s ease-in-out;
+  right: -25px;
+  top: -25px;
+}
+
+.notebook-close-modal:hover {
+  background-image: image-url("close-clicked.png");
+}
+
+
+.notebook-form-submit {
+  border-radius: 11px;
+  color: #ffffff;
+  width: 150px;
+  font-size: 18px;
+  background: #2dbe60;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-style: none;
+  margin: 20px;
+  box-shadow: 1.5px 1.5px 2px black;
+  transition: all .3s ease-in-out;
+}
+
+.notebook-form-submit:hover {
+  background: #1ba34b;
+  text-decoration: none;
+  cursor: pointer;
+}

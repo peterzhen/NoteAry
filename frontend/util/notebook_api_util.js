@@ -7,11 +7,11 @@ export const getNotebooks = (success, error) => {
 	});
 };
 
-export const createNotebook = (notebook, success, error) => {
+export const createNotebook = (data, success, error) => {
 	$.ajax({
 		method: 'POST',
 		url: '/api/notebooks',
-    data: notebook,
+    data: { notebook: data },
 		success,
 		error
 	});

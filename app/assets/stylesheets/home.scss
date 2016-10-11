@@ -4,18 +4,18 @@
   position: fixed;
 }
 
-.delete-note-prompt {
+.delete-prompt {
   text-align: center;
 }
 
-.delete-note-prompt > div {
+.delete-prompt > div {
   font-family: 'Varela Round';
   font-size: 24px;
   padding: 15px;
   color: #7c7c7c;
 }
 
-.delete-note-prompt > button  {
+.delete-prompt > button  {
   border-radius: 11px;
   font-family: 'Varela Round';
   color: #ffffff;
@@ -31,20 +31,20 @@
   transition: background .3s ease-in-out;
 }
 
-.delete-note-cancel-button {
+.cancel-button {
   background: #adabab;
 }
 
-.delete-note-delete-button {
+.delete-button {
   background: #2dbe60;
 }
 
-.delete-note-cancel-button:hover {
+.cancel-button:hover {
   background: #919191;
   cursor: pointer;
 }
 
-.delete-note-delete-button:hover {
+.delete-button:hover {
   background: #1ba34b;
   cursor: pointer;
 }
