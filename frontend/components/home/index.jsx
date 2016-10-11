@@ -2,10 +2,6 @@ import React from 'react';
 import NotesListContainer from './notes_list_container';
 
 class Index extends React.Component {
-  componentWillMount(){
-    this.props.requestNotes();
-    this.props.requestNotebooks();
-  }
 
   render(){
     const noteCount = this.props.notes.length;
@@ -15,7 +11,7 @@ class Index extends React.Component {
       indexTitle = this.props.currentNotebook.title;
       notes = notes.filter( note => note.notebook_id === this.props.currentNotebook.id )
     }
-    
+
     return(
       <div className="index-container">
         <div className="index-header">
@@ -31,7 +27,6 @@ class Index extends React.Component {
       </div>
     );
   }
-
 }
 
 export default Index;

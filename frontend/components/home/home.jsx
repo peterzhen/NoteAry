@@ -9,6 +9,11 @@ class Home extends React.Component{
     super(props);
   }
 
+  componentWillMount(){
+    this.props.requestNotes();
+    this.props.requestNotebooks();
+  }
+
   componentWillReceiveProps(newProps) {
     this.redirectIfLoggedOut(newProps);
   }

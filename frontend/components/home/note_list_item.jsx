@@ -23,7 +23,10 @@ class NoteListItem extends React.Component {
     this.setState({ deleteModalOpen: false });
   }
 
-  handleSelectNote(){
+  handleSelectNote(e){
+    // if (!e) var e = window.event;
+    // e.cancelBubble = true;
+    // if (e.stopPropagation) e.stopPropagation();
     if (this.props.currentNote && this.deleted === false){
       if (this.props.note.id !== this.props.currentNote.id){
         this.props.switchNote(this.props.note);
@@ -31,7 +34,7 @@ class NoteListItem extends React.Component {
     }
   }
 
-  handleDelete(){
+  handleDelete(e){
     this.deleted = true;
     this.props.destroyNote(this.props.note);
     if (this.props.note.id === this.props.currentNote.id){

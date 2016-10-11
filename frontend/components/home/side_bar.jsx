@@ -29,7 +29,7 @@ class SideBar extends React.Component{
   }
 
   handleAddNote(e){
-    let notebookId = this.props.notebooks[0];
+    let notebookId = this.props.notebooks[0].id;
     if ( this.props.currentNotebook ){
       notebookId = this.props.currentNotebook.id;
     }

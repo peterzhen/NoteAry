@@ -17,6 +17,7 @@ export const SessionModalStyle = {
     right: 'auto',
     borderRadius: '10px',
     transform: 'translate(-50%,-50%)',
-    boxShadow: '1px 1px 2px black'
+    boxShadow: '1px 1px 2px black',
+    overflow: 'hidden'
   }
 };

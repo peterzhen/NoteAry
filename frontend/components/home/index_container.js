@@ -12,14 +12,7 @@ const mapStateToProps = state => {
   });
 };
 
-const mapDispatchToProps = dispatch => {
-  return ({
-    requestNotes: () => dispatch(requestNotes()),
-    requestNotebooks: () => dispatch(requestNotebooks())
-  });
-};
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(Index);
