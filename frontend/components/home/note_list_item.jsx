@@ -15,11 +15,13 @@ class NoteListItem extends React.Component {
     this.closeDeleteModal = this.closeDeleteModal.bind(this);
   }
 
-  openDeleteModal() {
+  openDeleteModal(e) {
+    this.deleted = true;
     this.setState({ deleteModalOpen: true });
   }
 
-  closeDeleteModal() {
+  closeDeleteModal(e) {
+    this.deleted = false;
     this.setState({ deleteModalOpen: false });
   }
 
@@ -35,7 +37,6 @@ class NoteListItem extends React.Component {
   }
 
   handleDelete(e){
-    this.deleted = true;
     this.props.destroyNote(this.props.note);
     if (this.props.note.id === this.props.currentNote.id){
       this.props.switchNote(null);
