@@ -62,8 +62,6 @@ class Note extends React.Component {
       clearTimeout(this.saveTimer);
       this.props.updateNote(this.state);
       this.msg.success('saved');
-    } else {
-      this.msg.info('no changes were made');
     }
   }
 
