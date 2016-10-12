@@ -21,7 +21,7 @@ const NotesReducer = (state = _nullNotes, action) => {
 
     case RECEIVE_NOTES:
       const notes = action.notes;
-      return merge({}, state, {
+      return Object.assign({}, state, {
         notes
       });
 

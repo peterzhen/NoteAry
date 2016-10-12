@@ -3,27 +3,42 @@ import React from 'react';
 class UpdateNotebookPrompt extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      title: this.props.notebook.title,
-      description: this.props.notebook.description
-    }
-      this.update = this.update.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = this.props.notebook;
+
+    // {
+    //   id: this.props.notebook.id,
+    //   title: this.props.notebook.title,
+    //   description: this.props.notebook.description,
+    //   error: ""
+    // }
+
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
-		return e => this.setState({
-			[field]: e.currentTarget.value
-		});
+		return e => {
+      this.setState({ error: "" });
+      this.setState({ [field]: e.currentTarget.value });
+    }
 	}
 
   handleSubmit(e){
     e.preventDefault;
-    let newState = this.props.notebook;
-    newState.title = this.state.title;
-    newState.description = this.state.description;
-    this.props.updateNotebook(newState);
-    this.props.closeModal();
+    if (this.state.title === ""){
+      this.setState({ error: "Title can't be blank!" });
+    } else {
+      let newState = this.props.notebook;
+      newState.title = this.state.title;
+      newState.description = this.state.description;
+      // {
+      //   id: this.state.id,
+      //   title: this.state.title,
+      //   description: this.state.description
+      // }
+      this.props.updateNotebook(newState);
+      this.props.closeModal();
+    }
   }
 
   render() {
@@ -34,6 +49,7 @@ class UpdateNotebookPrompt extends React.Component {
           onClick={ this.props.closeModal }/>
   			<form onSubmit={this.handleSubmit} className="notebook-form">
           <div className="add-notebook-label">edit notebook</div>
+          <div className="notebook-form-error">{ this.state.error }</div>
 
 					<input type="text"
             placeholder="Title your notebook"

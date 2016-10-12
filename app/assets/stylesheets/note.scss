@@ -7,7 +7,7 @@
 .note-header-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px 20px 10px 20px;
   font-family: 'Varela Round';
   display: flex;
   flex-wrap: nowrap;
@@ -47,10 +47,10 @@
   display: block;
   background-repeat: no-repeat;
   background-image: image-url("save-file-unclicked.png");
-  background-size: 35px 35px;
+  background-size: 20px 20px;
   margin-top: 1px;
-  height: 35px;
-  width: 35px;
+  height: 20px;
+  width: 20px;
   transition: all .3s ease-in-out;
 }
 
@@ -69,10 +69,19 @@
   padding: 3px 5px;
   white-space: nowrap;
   border-radius: 5px;
-  top: 40px;
-  left: 0px;
+  top: 23px;
+  left: -7px;
 }
 
 .form-save-container:hover .save-button-tooltip {
   display: block;
+}
+
+.note-tools-container {
+  display: flex;
+  padding: 5px 20px 15px 20px;
+  flex-wrap: nowrap;
+  max-width: 800px;
+  margin: 0 auto;
+  justify-content: space-between;
 }

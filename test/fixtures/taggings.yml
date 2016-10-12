@@ -1,14 +1,12 @@
 # == Schema Information
 #
-# Table name: notes
+# Table name: taggings
 #
-#  id          :integer          not null, primary key
-#  title       :string
-#  body        :text
-#  author_id   :integer          not null
-#  notebook_id :integer          not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id         :integer          not null, primary key
+#  note_id    :integer          not null
+#  tag_id     :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

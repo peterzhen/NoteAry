@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
+import AlertContainer from 'react-alert';
 
 class Note extends React.Component {
   constructor(props) {
@@ -9,6 +10,13 @@ class Note extends React.Component {
       title: "",
       body: ""
     }
+    this.alertOptions = {
+      offset: 14,
+      position: 'bottom right',
+      theme: 'light',
+      time: 1000,
+      transition: 'fade'
+    };
     this.saveTimer;
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleBodyChange = this.handleBodyChange.bind(this);
@@ -29,6 +37,7 @@ class Note extends React.Component {
   }
 
   handleSave(e){
+    this.msg.success('saved');
     this.props.updateNote(this.state);
   }
 
@@ -54,6 +63,7 @@ class Note extends React.Component {
     } else {
       return(
         <div className='note-container'>
+          <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
           <div className="note-header-container">
             <input
               className="note-title-form"
@@ -61,12 +71,17 @@ class Note extends React.Component {
               placeholder='Title your note'
               onChange ={this.handleTitleChange}
               value={this.state.title} />
+          </div>
+
+          <div className="note-tools-container">
             <div className="form-save-container">
               <button
                 className="form-save-button"
                 onClick={ this.handleSave }></button>
               <div className="save-button-tooltip">SAVE</div>
             </div>
+
+
           </div>
 
           <div className="note-form-container">

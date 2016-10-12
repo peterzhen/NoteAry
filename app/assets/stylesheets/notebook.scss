@@ -16,12 +16,10 @@
 }
 
 .notebook-title-input {
-  margin-top: 10px;
   padding: 20px 0px 5px 0px;
   font-size: 30px;
   width: 100%;
   border-bottom: 1px solid lightgrey;
-
 }
 
 .notebook-description-input {
@@ -67,4 +65,11 @@
   background: #1ba34b;
   text-decoration: none;
   cursor: pointer;
+}
+
+.notebook-form-error {
+  color: #d93434;
+  font-size: 14px;
+  font-family: 'Varela Round';
+  height: 20px;
 }

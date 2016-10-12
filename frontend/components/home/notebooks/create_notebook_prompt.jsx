@@ -7,20 +7,30 @@ class CreateNotebookPrompt extends React.Component {
       title: "",
       description: ""
     }
-      this.update = this.update.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
-		return e => this.setState({
-			[field]: e.currentTarget.value
-		});
+		return e => {
+      this.setState({ error: "" })
+      this.setState({ [field]: e.currentTarget.value });
+    }
 	}
 
   handleSubmit(e){
     e.preventDefault;
-    this.props.createNotebook(this.state);
-    this.props.closeModal();
+    if (this.state.title === ""){
+      this.setState({ error: "Title can't be blank!" });
+    } else {
+      let newState = {
+        title: this.state.title,
+        description: this.state.description
+      }
+      this.props.createNotebook(newState);
+      this.props.closeModal();
+    }
   }
 
   render() {
@@ -31,6 +41,7 @@ class CreateNotebookPrompt extends React.Component {
           onClick={ this.props.closeModal }/>
   			<form onSubmit={this.handleSubmit} className="notebook-form">
           <div className="add-notebook-label">add notebook</div>
+          <div className="notebook-form-error">{ this.state.error }</div>
 
 					<input type="text"
             placeholder="Title your notebook"
