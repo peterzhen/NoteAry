@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  after_create :ensure_default_notebook
+
   after_initialize :ensure_session_token
 
   validates :username, :password_digest, :session_token, presence: true
@@ -64,5 +66,10 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
   end
+
+  def ensure_default_notebook
+    Notebook.create!( title: "Inbox", description: "", author_id: self.id)
+  end
+
 
 end
