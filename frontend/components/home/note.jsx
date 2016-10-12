@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 class Note extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = this.props.currentNote || {
       id: 0,
       title: "",
       body: ""
@@ -18,7 +18,11 @@ class Note extends React.Component {
   componentWillReceiveProps(nextProps){
     if (nextProps.currentNote){
       if (nextProps.currentNote.id !== this.state.id){
-        if (this.props.currentNote) this.handleSave();
+        if (this.props.currentNote && this.props.notebooks.length > 0){
+          if (this.props.currentNote.title !== this.state.title || this.props.currentNote.body !== this.state.body){
+            this.handleSave();
+          }
+        }
         this.setState(nextProps.currentNote);
       }
     }

@@ -68,7 +68,9 @@ class SessionForm extends React.Component {
 					<button
 						className="session-close-modal"
 						onClick={ this.props.closeModal }/>
+					
           <h2 className="session-form-type">{this.props.formType}</h2>
+
 					<input type="text"
             placeholder="Username"
 						value={this.state.username}
