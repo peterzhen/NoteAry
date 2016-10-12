@@ -38,19 +38,20 @@ class NotebooksList extends React.Component {
 
   render() {
     return (
-      <div className="notebooks-index-container">
-        <div className="notebooks-index-header">
-          <div className="notebooks-index-title">NOTEBOOKS</div>
-          <div className="notebooks-count">{`${this.props.notebooks.length} Notebooks`}</div>
-          <div className="add-notebook-button-container">
+      <div className="drawer-index-container">
+        <div className="drawer-index-header">
+          <div className="drawer-index-title">NOTEBOOKS</div>
+          <div className="drawer-count">{`${this.props.notebooks.length} Notebooks`}</div>
+
+          <div className="drawer-add-button-container">
             <button
-              className="add-notebook-button"
+              className="drawer-add-button"
               onClick={ this.openNotebookModal }/>
           </div>
 
-          <div className="close-notebook-drawer-container">
+          <div className="drawer-close-button-container">
             <button
-              className="close-notebook-drawer-button"
+              className="drawer-close-button"
               onClick={ this.props.closeNotebookDrawer }/>
           </div>
 
@@ -73,8 +74,8 @@ class NotebooksList extends React.Component {
     );
   }
 }
-
-// <div className="add-notebook-button-tooltip">NEW NOTEBOOK</div>
+//
 // <div className="close-notebook-drawer-button-tooltip">CLOSE</div>
+// <div className="add-notebook-button-tooltip">NEW NOTEBOOK</div>
 
 export default NotebooksList;

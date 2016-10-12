@@ -1,17 +1,21 @@
 import React from 'react';
 import Drawer from 'react-motion-drawer';
 import NotebookListContainer from './notebooks/notebook_list_container';
+import TagsListContainer from './tags/tags_list_container';
 
 class SideBar extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       notebookDrawerOpen: false,
+      tagsDrawerOpen: false,
       noOverlay: false
     };
 
     this.toggleNotebookDrawer = this.toggleNotebookDrawer.bind(this);
     this.closeNotebookDrawer = this.closeNotebookDrawer.bind(this);
+    this.toggleTagsDrawer = this.toggleTagsDrawer.bind(this);
+    this.closeTagsDrawer = this.closeTagsDrawer.bind(this);
 
     this.handleAddNote = this.handleAddNote.bind(this);
     this.handleNotes = this.handleNotes.bind(this);
@@ -28,12 +32,20 @@ class SideBar extends React.Component{
     this.setState({ notebookDrawerOpen: false });
   }
 
+  toggleTagsDrawer() {
+    this.setState({ tagsDrawerOpen: !this.state.tagsDrawerOpen });
+  }
+
+  closeTagsDrawer() {
+    this.setState({ tagsDrawerOpen: false });
+  }
+
   handleAddNote(e){
     let notebookId = this.props.notebooks[0].id;
     if ( this.props.currentNotebook ){
       notebookId = this.props.currentNotebook.id;
     }
-    const defaultNote = { "title": "", "body": "", "notebook_id": `${notebookId}`};
+    const defaultNote = { "title": "", "body": "<p><br></p>", "notebook_id": `${notebookId}`};
     this.props.createNote(defaultNote);
   }
 
@@ -45,6 +57,7 @@ class SideBar extends React.Component{
 
   handleNotes(e){
     this.props.switchNotebook(null);
+    //this.props.switchTag(null);
   }
 
   handleNotebooks(e){
@@ -52,7 +65,7 @@ class SideBar extends React.Component{
   }
 
   handleTags(e){
-    //
+    this.toggleTagsDrawer();
   }
 
   handleLogout(e){
@@ -101,6 +114,15 @@ class SideBar extends React.Component{
           onChange={open => this.setState({ notebookDrawerOpen: open})}
           width={420}>
           <NotebookListContainer closeNotebookDrawer={ this.closeNotebookDrawer }/>
+        </Drawer>
+
+        <Drawer
+          className="tags-drawer"
+          drawerStyle={style}
+          open={this.state.tagsDrawerOpen}
+          onChange={open => this.setState({ tagsDrawerOpen: open})}
+          width={420}>
+          <TagsListContainer closeTagsDrawer={ this.closeTagsDrawer }/>
         </Drawer>
 
       </div>

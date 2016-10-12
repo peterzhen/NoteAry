@@ -1,8 +1,8 @@
-.notebooks-index-container {
+.drawer-index-container {
   padding: 15px 20px 20px 20px;
 }
 
-.notebooks-index-header {
+.drawer-index-header {
   position: relative;
   font-family: 'Varela Round';
   font-size: 20px;
@@ -12,12 +12,12 @@
   border-bottom: 1px solid #ededed;
 }
 
-.notebooks-count {
+.drawer-count {
   font-size: 12px;
   color: #a8a6a6;
 }
 
-.close-notebook-drawer-button {
+.drawer-close-button {
   position: absolute;
   height: 32px;
   width: 32px;
@@ -29,11 +29,11 @@
   top: -10px;
 }
 
-.close-notebook-drawer-button:hover {
+.drawer-close-button:hover {
   background-image: image-url("close-clicked.png");
 }
 
-.notesbooks-index-list > ul > .selected {
+.drawer-index-list > ul > .selected {
   background: #f2f2f2;
 }
 
@@ -99,7 +99,7 @@
   color: #ffffff;
 }
 
-.add-notebook-button {
+.drawer-add-button {
   position: absolute;
   display: block;
   height: 32px;
@@ -112,7 +112,7 @@
   top: 30px;
 }
 
-.add-notebook-button:hover {
+.drawer-add-button:hover {
   background-image: image-url("add-note-clicked.png");
   cursor: pointer;
 }
@@ -148,15 +148,6 @@
   margin: 20px;
 }
 
-
-// .add-notebook-button-container {
-//   position: relative;
-// }
-//
-// .add-notebook-button-tooltip {
-//   position: relative;
-// }
-//
 // .add-notebook-button-tooltip{
 //   display: none;
 //   font-family: 'Varela Round';
@@ -167,10 +158,28 @@
 //   padding: 5px;
 //   white-space: nowrap;
 //   border-radius: 5px;
-//   top: 5px;
-//   left: 40px;
+//   top: 33px;
+//   right: 37px;
 // }
 //
-// .add-notebook-button:hover .add-notebook-button-tooltip{
+// .close-notebook-drawer-button-tooltip{
+//   display: none;
+//   font-family: 'Varela Round';
+//   font-size: 12px;
+//   position: absolute;
+//   color: #fff;
+//   background: grey;
+//   padding: 5px;
+//   white-space: nowrap;
+//   border-radius: 5px;
+//   top: -5px;
+//   right: 37px;
+// }
+//
+// .add-notebook-button:hover .add-notebook-button-tooltip {
+//   display: block;
+// }
+//
+// .close-notebook-drawer-button:hover .close-notebook-drawer-button-tooltip{
 //   display: block;
 // }

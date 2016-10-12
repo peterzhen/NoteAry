@@ -18,7 +18,7 @@ class Note extends React.Component {
       offset: 14,
       position: 'bottom right',
       theme: 'light',
-      time: 1000,
+      time: 1500,
       transition: 'fade'
     };
     this.saveTimer;
@@ -54,8 +54,17 @@ class Note extends React.Component {
   }
 
   handleSave(e){
-    this.props.updateNote(this.state);
-    this.msg.success('saved');
+    const oldTitle = this.props.currentNote.title;
+    const oldBody = this.props.currentNote.body;
+    const newTitle = this.state.title;
+    const newBody = this.state.body;
+    if ( oldTitle !== newTitle || oldBody !== newBody ){
+      clearTimeout(this.saveTimer);
+      this.props.updateNote(this.state);
+      this.msg.success('saved');
+    } else {
+      this.msg.info('no changes were made');
+    }
   }
 
   handleDelete(e){
@@ -76,13 +85,13 @@ class Note extends React.Component {
   handleTitleChange(e) {
     clearTimeout(this.saveTimer);
     this.setState({ title: e.currentTarget.value })
-    this.saveTimer = setTimeout( this.handleSave, 2000);
+    this.saveTimer = setTimeout( this.handleSave, 3000);
   }
 
   handleBodyChange(text) {
     clearTimeout(this.saveTimer);
     this.setState({ body: text })
-    this.saveTimer = setTimeout( this.handleSave, 2000);
+    this.saveTimer = setTimeout( this.handleSave, 3000);
   }
 
   render() {

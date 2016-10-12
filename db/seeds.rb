@@ -1,80 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 User.destroy_all
-
-demoUser = User.create(username: "demo", password: "password")
-
 Notebook.destroy_all
-
-notebook1 = Notebook.create(
-                            title: "First Notebook",
-                            author_id: demoUser.id,
-                            description: "Dev Notebook 1"
-                            )
-
-notebook2 = Notebook.create(
-                            title: "Second Notebook",
-                            author_id: demoUser.id,
-                            description: "Dev Notebook 2"
-                            )
-
 Note.destroy_all
 
-note1 = Note.create(
-                    title: "First Note!",
-                    body: "Congrats! This is your first note!",
-                    author_id: demoUser.id,
-                    notebook_id: notebook1.id
-                    )
-
-note2 = Note.create(
-                    title: "Second Note!",
-                    body: "Congrats! This is your second note!",
-                    author_id: demoUser.id,
-                    notebook_id: notebook1.id
-                    )
-
-note3 = Note.create(
-                    title: "Third Note!",
-                    body: "Congrats! This is your third note!",
-                    author_id: demoUser.id,
-                    notebook_id: notebook1.id
-                    )
-
-note4 = Note.create(
-                    title: "Fourth Note!",
-                    body: "Lorem Ipsum is simply dummy text of the
-                    printing and typesetting industry. Lorem Ipsum has
-                    been the industry's standard dummy text ever since
-                    the 1500s, when an unknown printer took a galley of
-                    type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially
-                    unchanged. It was popularised in the 1960s with the
-                    release of Letraset sheets containing Lorem Ipsum
-                    passages, and more recently with desktop publishing
-                    software like Aldus PageMaker including versions of
-                    Lorem Ipsum.",
-                    author_id: demoUser.id,
-                    notebook_id: notebook2.id
-                    )
-
-note5 = Note.create(
-                    title: "Fifth Note!",
-                    body: "Congrats! This is your fifth note!",
-                    author_id: demoUser.id,
-                    notebook_id: notebook2.id
-                    )
-
-note6 = Note.create(
-                    title: "Sixth Note!",
-                    body: "Congrats! This is your sixth note!",
-                    author_id: demoUser.id,
-                    notebook_id: notebook2.id
-                    )
+Note.create!([
+  {title: "Department Store", body: "<ol><li><span style=\"font-size: 32px; color: rgb(230, 0, 0);\">Hammer</span></li><li><span style=\"font-size: 32px; color: rgb(230, 0, 0);\">Sword</span></li><li><span style=\"font-size: 32px; background-color: rgb(255, 255, 255); color: rgb(0, 138, 0);\">Trash Can</span></li></ol>", author_id: 28, notebook_id: 60},
+  {title: "Supermarket", body: "<p><strong style=\"font-size: 32px;\">Milk, Cereal, Yogurt, Ice</strong></p>", author_id: 28, notebook_id: 60},
+  {title: "Morning time", body: "<p>Clean bathroom, Wash Car</p>", author_id: 28, notebook_id: 61},
+  {title: "Afternoon", body: "<p>Pick up dry cleaning</p>", author_id: 28, notebook_id: 61},
+  {title: "Evening", body: "<p>Dinner!</p>", author_id: 28, notebook_id: 61},
+  {title: "Midterm", body: "<p><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span></p><p><br></p><p><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span></p><p><br></p><p><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span></p><p><br></p><p><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span></p><p><br></p><p><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span></p><p><br></p><p><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span></p><p><br></p><p><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);\"><span class=\"ql-cursor\">﻿</span>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span></p>", author_id: 28, notebook_id: 62},
+  {title: "Final", body: "<p><strong style=\"font-size: 32px;\"><u>uhhh????</u></strong></p>", author_id: 28, notebook_id: 62}
+])
+Notebook.create!([
+  {title: "Shopping List", author_id: 28, description: ""},
+  {title: "To Do List", author_id: 28, description: "For Sunday"},
+  {title: "School Work", author_id: 28, description: ""}
+])
+User.create!([
+  {session_token: "R-IWgP_OzfA23FsytKYOxA", username: "demo", password_digest: "$2a$10$XaJKAGyzFkiVx.000sD3fuoRbdjqM.elzLI1OxV7/p2c70nvWxuAy", avatar_file_name: nil, avatar_content_type: nil, avatar_file_size: nil, avatar_updated_at: nil}
+])
