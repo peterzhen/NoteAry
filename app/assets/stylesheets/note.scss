@@ -39,6 +39,21 @@
   opacity: .7;
 }
 
+.note-tools-container {
+  display: flex;
+  padding: 5px 20px 20px 20px;
+  flex-wrap: nowrap;
+  max-width: 800px;
+  margin: 0 auto;
+  justify-content: flex-start;
+}
+
+.note-tools-container > div {
+  margin-right: 30px;
+}
+
+//save button
+
 .form-save-container {
   position: relative;
 }
@@ -59,7 +74,7 @@
   cursor: pointer;
 }
 
-.save-button-tooltip {
+.save-tool-tooltip {
   display: none;
   font-family: 'Varela Round';
   font-size: 10px;
@@ -69,19 +84,130 @@
   padding: 3px 5px;
   white-space: nowrap;
   border-radius: 5px;
-  top: 23px;
+  top: 25px;
   left: -7px;
 }
 
-.form-save-container:hover .save-button-tooltip {
+.form-save-container:hover .save-tool-tooltip {
   display: block;
 }
 
-.note-tools-container {
-  display: flex;
-  padding: 5px 20px 15px 20px;
-  flex-wrap: nowrap;
-  max-width: 800px;
-  margin: 0 auto;
-  justify-content: space-between;
+//delete button
+
+.form-delete-container {
+  position: relative;
+}
+
+.form-delete-button {
+  display: block;
+  background-repeat: no-repeat;
+  background-image: image-url("delete-toolbar-unclicked.png");
+  background-size: 20px 20px;
+  margin-top: 1px;
+  height: 20px;
+  width: 20px;
+  transition: all .3s ease-in-out;
+}
+
+.form-delete-button:hover {
+  background-image: image-url("delete-toolbar-clicked.png");
+  cursor: pointer;
+}
+
+.delete-tool-tooltip {
+  display: none;
+  font-family: 'Varela Round';
+  font-size: 10px;
+  position: absolute;
+  color: #fff;
+  background: grey;
+  padding: 3px 5px;
+  white-space: nowrap;
+  border-radius: 5px;
+  top: 25px;
+  left: -15px;
+}
+
+.form-delete-container:hover .delete-tool-tooltip {
+  display: block;
+}
+
+//notebooks button
+
+.form-notebooks-container {
+  position: relative;
+}
+
+.form-notebooks-button {
+  display: block;
+  background-repeat: no-repeat;
+  background-image: image-url("notebooks-toolbar-unclicked.png");
+  background-size: 20px 20px;
+  margin-top: 1px;
+  height: 20px;
+  width: 20px;
+  transition: all .3s ease-in-out;
+}
+
+.form-notebooks-button:hover {
+  background-image: image-url("notebooks-toolbar-clicked.png");
+  cursor: pointer;
+}
+
+.notebooks-tool-tooltip {
+  display: none;
+  font-family: 'Varela Round';
+  font-size: 10px;
+  position: absolute;
+  color: #fff;
+  background: grey;
+  padding: 3px 5px;
+  white-space: nowrap;
+  border-radius: 5px;
+  top: 25px;
+  left: -25px;
+}
+
+.form-notebooks-container:hover .notebooks-tool-tooltip {
+  display: block;
+}
+
+//tags button
+
+.form-tags-container {
+  position: relative;
+}
+
+.form-tags-button {
+  display: block;
+  background-repeat: no-repeat;
+  background-image: image-url("tags-toolbar-unclicked.png");
+  background-size: 20px 20px;
+  margin-top: 1px;
+  height: 20px;
+  width: 20px;
+  transition: all .3s ease-in-out;
+}
+
+.form-tags-button:hover {
+  background-image: image-url("tags-toolbar-clicked.png");
+  cursor: pointer;
+}
+
+.tags-tool-tooltip {
+  display: none;
+  font-family: 'Varela Round';
+  font-size: 10px;
+  position: absolute;
+  color: #fff;
+  background: grey;
+  padding: 3px 5px;
+  white-space: nowrap;
+  border-radius: 5px;
+  top: 25px;
+  left: -7px;
+}
+
+.form-tags-container:hover .tags-tool-tooltip {
+  display: block;
 }

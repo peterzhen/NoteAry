@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import AlertContainer from 'react-alert';
+import Modal from 'react-modal';
+import DeleteNotePrompt from './delete_note_prompt';
+import { DeleteModalStyle } from '../modal_styles/delete_modal_style';
 
 class Note extends React.Component {
   constructor(props) {
@@ -21,6 +24,9 @@ class Note extends React.Component {
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleNotebooks = this.handleNotebooks.bind(this);
+    this.handleTags = this.handleTags.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -39,6 +45,18 @@ class Note extends React.Component {
   handleSave(e){
     this.msg.success('saved');
     this.props.updateNote(this.state);
+  }
+
+  handleDelete(e){
+
+  }
+
+  handleNotebooks(e){
+
+  }
+
+  handleTags(e){
+
   }
 
   handleTitleChange(e) {
@@ -78,10 +96,29 @@ class Note extends React.Component {
               <button
                 className="form-save-button"
                 onClick={ this.handleSave }></button>
-              <div className="save-button-tooltip">SAVE</div>
+              <div className="save-tool-tooltip">SAVE</div>
             </div>
 
+            <div className="form-delete-container">
+              <button
+                className="form-delete-button"
+                onClick={ this.handleDelete }></button>
+              <div className="delete-tool-tooltip">DELETE</div>
+            </div>
 
+            <div className="form-notebooks-container">
+              <button
+                className="form-notebooks-button"
+                onClick={ this.handleNotebooks }></button>
+              <div className="notebooks-tool-tooltip">NOTEBOOKS</div>
+            </div>
+
+            <div className="form-tags-container">
+              <button
+                className="form-tags-button"
+                onClick={ this.handleTags }></button>
+              <div className="tags-tool-tooltip">TAGS</div>
+            </div>
           </div>
 
           <div className="note-form-container">
