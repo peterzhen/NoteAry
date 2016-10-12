@@ -13,6 +13,7 @@ class Note extends React.Component {
       title: "",
       body: ""
     }
+
     this.alertOptions = {
       offset: 14,
       position: 'bottom right',
@@ -27,6 +28,8 @@ class Note extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleNotebooks = this.handleNotebooks.bind(this);
     this.handleTags = this.handleTags.bind(this);
+    this.openDeleteModal = this.openDeleteModal.bind(this);
+    this.closeDeleteModal = this.closeDeleteModal.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -42,13 +45,24 @@ class Note extends React.Component {
     }
   }
 
+  openDeleteModal(e) {
+    this.setState({ deleteModalOpen: true });
+  }
+
+  closeDeleteModal(e) {
+    this.setState({ deleteModalOpen: false });
+  }
+
   handleSave(e){
-    this.msg.success('saved');
     this.props.updateNote(this.state);
+    this.msg.success('saved');
   }
 
   handleDelete(e){
-
+    this.props.destroyNote(this.props.currentNote);
+    this.msg.error('deleted');
+    this.props.switchNote(null);
+    this.closeDeleteModal()
   }
 
   handleNotebooks(e){
@@ -102,7 +116,7 @@ class Note extends React.Component {
             <div className="form-delete-container">
               <button
                 className="form-delete-button"
-                onClick={ this.handleDelete }></button>
+                onClick={ this.openDeleteModal }></button>
               <div className="delete-tool-tooltip">DELETE</div>
             </div>
 
@@ -129,6 +143,17 @@ class Note extends React.Component {
               onChange={this.handleBodyChange}
               getText={this.getText}></ReactQuill>
           </div>
+
+          <Modal
+            isOpen={this.state.deleteModalOpen}
+            onRequestClose={this.closeDeleteModal}
+            style={ DeleteModalStyle }>
+
+            <DeleteNotePrompt
+              deleteNote={this.handleDelete}
+              closeModal={this.closeDeleteModal}/>
+          </Modal>
+
         </div>
       );
     }
