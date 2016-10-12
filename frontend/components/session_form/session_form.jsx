@@ -64,11 +64,12 @@ class SessionForm extends React.Component {
 	render() {
 		return (
 			<div className="session-form-box">
+
+				<button
+					className="session-close-modal"
+					onClick={ this.props.closeModal }/>
+
 				<form onSubmit={this.handleSubmit} className="login-form">
-					<button
-						className="session-close-modal"
-						onClick={ this.props.closeModal }/>
-					
           <h2 className="session-form-type">{this.props.formType}</h2>
 
 					<input type="text"

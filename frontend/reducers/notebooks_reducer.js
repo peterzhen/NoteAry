@@ -37,6 +37,9 @@ const NotebooksReducer = (state = _nullNotebooks, action) => {
       state.notebooks.map( (notebook, idx) => {
         if (notebook.id === updatedNotebook.id){
           newState.notebooks[idx] = updatedNotebook;
+          if (state.currentNotebook.id === updatedNotebook.id){
+            newState.currentNotebook = updatedNotebook;
+          }
         }
       });
       return newState;
