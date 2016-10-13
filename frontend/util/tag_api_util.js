@@ -10,7 +10,7 @@ export const getTags = (success, error) => {
 export const getNotesTags = (note, success, error) => {
 	$.ajax({
 		method: 'GET',
-		url: `'api/notes/${note.id}/tags'`,
+		url: `api/notes/${note.id}/tags`,
 		success,
 		error
 	});

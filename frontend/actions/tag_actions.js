@@ -6,6 +6,9 @@ export const CREATE_TAG = "RECEIVE_TAG";
 export const DESTROY_TAG = "DESTROY_TAG";
 export const REMOVE_TAG = "REMOVE_TAG";
 export const SWITCH_TAG = "SWITCH_TAG";
+export const REQUEST_NOTES_TAGS = "REQUEST_NOTES_TAGS";
+export const RECEIVE_NOTES_TAGS = "RECEIVE_NOTES_TAGS";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const requestTags = () => ({
   type: REQUEST_TAGS
@@ -45,4 +48,19 @@ export const removeTag = tag => ({
 export const switchTag = tag => ({
   type: SWITCH_TAG,
   tag
+});
+
+export const requestNotesTags = note => ({
+  type: REQUEST_NOTES_TAGS,
+  note
+});
+
+export const receiveNotesTags = tags => ({
+  type: RECEIVE_NOTES_TAGS,
+  tags
+});
+
+export const receiveErrors = errors => ({
+  type: RECEIVE_ERRORS,
+  errors
 });

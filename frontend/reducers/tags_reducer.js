@@ -1,6 +1,8 @@
 import {
         RECEIVE_TAGS,
-        SWITCH_TAG
+        RECEIVE_NOTES_TAGS,
+        SWITCH_TAG,
+        RECEIVE_ERRORS
       } from '../actions/tag_actions';
 
 import merge from 'lodash/merge';
@@ -8,6 +10,7 @@ import merge from 'lodash/merge';
 const _nullTags = Object.freeze({
   currentTag: null,
   tags: [],
+  currentNotesTags: [],
   errors: []
 });
 
@@ -24,6 +27,14 @@ const TagsReducer = (state = _nullTags, action) => {
       newState = merge({}, state);
       newState.currentTag = action.tag;
       return newState;
+
+    case RECEIVE_NOTES_TAGS:
+      newState = merge({}, state);
+      newState.currentNotesTags = action.tags;
+      return newState;
+
+    case RECEIVE_ERRORS:
+      console.log(action.errors);
 
     default:
       return state;

@@ -40,6 +40,7 @@
     "react-quill": "git+https://github.com/zenoamaro/react-quill.git",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
+    "react-tag-input": "^4.3.3",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.0",
     "tweener": "^0.1.3",

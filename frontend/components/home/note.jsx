@@ -2,6 +2,7 @@ import React from 'react';
 import ReactQuill from 'react-quill';
 import AlertContainer from 'react-alert';
 import Modal from 'react-modal';
+import TagFormContainer from './tags/tag_form_container';
 import DeleteNotePrompt from './delete_note_prompt';
 import { DeleteModalStyle } from '../modal_styles/delete_modal_style';
 
@@ -42,6 +43,7 @@ class Note extends React.Component {
           }
         }
         this.setState(nextProps.currentNote);
+        this.props.requestNotesTags(nextProps.currentNote);
       }
     }
   }
@@ -155,6 +157,9 @@ class Note extends React.Component {
                 onClick={ this.handleTags }></button>
               <div className="tags-tool-tooltip">TAGS</div>
             </div>
+
+            <TagFormContainer note={ this.props.currentNote }/>
+
           </div>
 
           <div className="note-form-container">

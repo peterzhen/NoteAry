@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { updateNote, destroyNote, switchNote } from '../../actions/note_actions';
+import { requestNotesTags } from '../../actions/tag_actions';
 import Note from './note';
 
 const mapStateToProps = state => {
@@ -14,7 +15,8 @@ const mapDispatchToProps = dispatch => {
   return ({
     updateNote: (note) => dispatch(updateNote(note)),
     destroyNote: (note) => dispatch(destroyNote(note)),
-    switchNote: (note) => dispatch(switchNote(note))
+    switchNote: (note) => dispatch(switchNote(note)),
+    requestNotesTags: (note) => dispatch(requestNotesTags(note))
   });
 };
 
