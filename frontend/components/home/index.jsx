@@ -11,6 +11,10 @@ class Index extends React.Component {
       indexTitle = this.props.currentNotebook.title;
       notes = notes.filter( note => note.notebook_id === this.props.currentNotebook.id )
       noteCount = notes.length;
+    } else if (this.props.currentTag){
+      indexTitle = `Tag: ${this.props.currentTag.name}`;
+      notes = this.props.taggedNotes;
+      noteCount = notes.length;
     }
 
     return(

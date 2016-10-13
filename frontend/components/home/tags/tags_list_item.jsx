@@ -23,13 +23,24 @@ class TagsListItem extends React.Component {
     this.setState({ deleteModalOpen: false });
   }
 
-  handleSelectTag(e){
+  selectTag(){
+    this.props.requestTaggedNotes(this.props.tag);
+    this.props.switchTag(this.props.tag);
+    this.props.switchNotebook(null);
+    this.props.closeDrawer();
+  }
 
+  handleSelectTag(e){
+    if (!this.props.currentTag){
+      this.selectTag();
+    }else if(this.props.tag.id !== this.props.currentTag.id){
+      this.selectTag();
+    }
   }
 
   render(){
     return(
-      <li className="tag-item-li" onClick={ this.handeSelectTag }>
+      <li className="tag-item-li" onClick={ this.handleSelectTag }>
         <div className="tag-item-container">
           <div className="tag-item-name">{ this.props.tag.name }</div>
 

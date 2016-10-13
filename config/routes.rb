@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     resources :tags, only: [:index, :create, :show, :destroy]
   end
 
+  get 'api/notes/:id/tags', to: 'api/notes#tags'
 end

@@ -40,13 +40,17 @@ class NotebookListItem extends React.Component {
     this.setState({ updateModalOpen: false });
   }
 
+  selectNotebook(){
+    this.props.switchNotebook(this.props.notebook);
+    this.props.switchTag(null);
+    this.props.closeDrawer();
+  }
+
   handleSelectNotebook(e){
     if (!this.props.currentNotebook){
-      this.props.switchNotebook(this.props.notebook);
-      this.props.closeDrawer();
+      this.selectNotebook();
     }else if(this.props.notebook.id !== this.props.currentNotebook.id){
-      this.props.switchNotebook(this.props.notebook);
-      this.props.closeDrawer();
+      this.selectNotebook();
     }
   }
 

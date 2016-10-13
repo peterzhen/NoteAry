@@ -9,6 +9,8 @@ export const UPDATE_NOTE = "UPDATE_NOTE";
 export const DESTROY_NOTE = "DESTROY_NOTE";
 export const REMOVE_NOTE = "REMOVE_NOTE";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const REQUEST_TAGGED_NOTES = "GET_TAGGED_NOTES"
+export const RECEIVE_TAGGED_NOTES = "RECEIVE_TAGGED_NOTES"
 
 export const requestNotes = () => {
   return ({
@@ -64,4 +66,14 @@ export const removeNote = note => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors
+});
+
+export const requestTaggedNotes = tag => ({
+  type: REQUEST_TAGGED_NOTES,
+  tag
+});
+
+export const receiveTaggedNotes = notes => ({
+  type: RECEIVE_TAGGED_NOTES,
+  notes
 });

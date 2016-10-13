@@ -1,5 +1,6 @@
 import {
         RECEIVE_TAGS,
+        SWITCH_TAG
       } from '../actions/tag_actions';
 
 import merge from 'lodash/merge';
@@ -18,6 +19,11 @@ const TagsReducer = (state = _nullTags, action) => {
       return Object.assign({}, state, {
         tags
       });
+
+    case SWITCH_TAG:
+      newState = merge({}, state);
+      newState.currentTag = action.tag;
+      return newState;
 
     default:
       return state;

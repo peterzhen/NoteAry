@@ -44,3 +44,12 @@ export const destroyNote = (data, success, error) => {
 		error
 	});
 };
+
+export const getTaggedNotes= (tag, success, error) => {
+	$.ajax({
+		method: 'GET',
+		url: `/api/tags/${tag.id}`,
+		success,
+		error
+	});
+};

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import NotebookListItem from './notebook_list_item';
 import { switchNote } from '../../../actions/note_actions';
+import { switchTag } from '../../../actions/tag_actions';
 import { destroyNotebook, switchNotebook, createNotebook } from '../../../actions/notebook_actions';
 import { requestNotes } from '../../../actions/note_actions';
 
@@ -19,7 +20,8 @@ const mapDispatchToProps = ( dispatch, ownProps ) => {
     switchNotebook: notebook => dispatch(switchNotebook(notebook)),
     createNotebook: notebook => dispatch(createNotebook(notebook)),
     requestNotes: () => dispatch(requestNotes()),
-    switchNote: note => dispatch(switchNote(note))
+    switchNote: note => dispatch(switchNote(note)),
+    switchTag: tag => dispatch(switchTag(tag))
   });
 };
 

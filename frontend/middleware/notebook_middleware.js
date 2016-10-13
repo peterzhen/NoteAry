@@ -1,6 +1,7 @@
 import {
         getNotebooks,
         getNotebook,
+        getTaggedNotes,
         createNotebook,
         updateNotebook,
         destroyNotebook

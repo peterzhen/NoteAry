@@ -5,7 +5,7 @@ export const RECEIVE_TAG = "RECEIVE_TAG";
 export const CREATE_TAG = "RECEIVE_TAG";
 export const DESTROY_TAG = "DESTROY_TAG";
 export const REMOVE_TAG = "REMOVE_TAG";
-export const SWITCH_NOTE = "SWITCH_NOTE";
+export const SWITCH_TAG = "SWITCH_TAG";
 
 export const requestTags = () => ({
   type: REQUEST_TAGS

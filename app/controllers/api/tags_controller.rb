@@ -9,20 +9,18 @@ class Api::TagsController < ApplicationController
   end
 
   def create
-    tag = Tag.find_or_create_by(tag: tag_params[:tag])
-    tagging = Tagging.find_or_create_by(note_id: tag_params[:noteId], tag: tag)
+    @tag = Tag.find_or_create_by(name: tag_params[:name])
+    @tagging = Tagging.find_or_create_by(note_id: tag_params[:noteId], tag_id: @tag.tag_id)
 
-    @note = tagging.note
     render :show
   end
 
   def show
     @tag = Tag.find(params[:id])
-
     if @tag
       @tagged_notes = []
       current_user.notes.each do |note|
-        @tagged_notes << note if note.tags.any? { |tag| tag.note_id == @tag.id }
+        @tagged_notes << note if note.taggings.any? { |tagging| tagging.tag_id == @tag.id }
       end
       render json: @tagged_notes
     else
