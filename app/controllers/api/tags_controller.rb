@@ -9,7 +9,11 @@ class Api::TagsController < ApplicationController
   end
 
   def create
+    tag = Tag.find_or_create_by(tag: tag_params[:tag])
+    tagging = Tagging.find_or_create_by(note_id: tag_params[:noteId], tag: tag)
 
+    @note = tagging.note
+    render :show
   end
 
   def show
@@ -27,10 +31,11 @@ class Api::TagsController < ApplicationController
   end
 
   def destroy
+
   end
 
   private
   def tag_params
-    params.require(:tag).permit(:name)
+    params.require(:tag).permit(:name, :note_id)
   end
 end

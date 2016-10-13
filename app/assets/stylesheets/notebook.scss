@@ -45,7 +45,6 @@
   background-image: image-url("close-clicked.png");
 }
 
-
 .notebook-form-submit {
   border-radius: 11px;
   color: #ffffff;
@@ -72,4 +71,8 @@
   font-size: 14px;
   font-family: 'Varela Round';
   height: 20px;
+}
+
+.default-notebook{
+  height: 0px;
 }

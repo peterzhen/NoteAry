@@ -8,7 +8,8 @@ const mapStateToProps = state => {
   return ({
     currentNote: state.notes.currentNote,
     currentNotebook: state.notebooks.currentNotebook,
-    notes: state.notes.notes
+    notes: state.notes.notes,
+    notebooks: state.notebooks.notebooks
   });
 };
 

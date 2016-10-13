@@ -33,12 +33,8 @@
   background-image: image-url("close-clicked.png");
 }
 
-.drawer-index-list > ul > .selected {
+.selectedNotebook {
   background: #f2f2f2;
-}
-
-.notesbooks-index-list > ul > .selected:hover {
-  background: #2dbe60;
 }
 
 .notebook-item-li {

@@ -25,6 +25,7 @@ class Note extends React.Component {
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
+    this.autoSave = this.autoSave.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleNotebooks = this.handleNotebooks.bind(this);
     this.handleTags = this.handleTags.bind(this);
@@ -53,6 +54,18 @@ class Note extends React.Component {
     this.setState({ deleteModalOpen: false });
   }
 
+  autoSave(){
+    const oldTitle = this.props.currentNote.title;
+    const oldBody = this.props.currentNote.body;
+    const newTitle = this.state.title;
+    const newBody = this.state.body;
+    if ( oldTitle !== newTitle || oldBody !== newBody ){
+      clearTimeout(this.saveTimer);
+      this.props.updateNote(this.state);
+      this.msg.success('saved');
+    }
+  }
+
   handleSave(e){
     const oldTitle = this.props.currentNote.title;
     const oldBody = this.props.currentNote.body;
@@ -62,6 +75,8 @@ class Note extends React.Component {
       clearTimeout(this.saveTimer);
       this.props.updateNote(this.state);
       this.msg.success('saved');
+    } else {
+      this.msg.info('no changes were made');
     }
   }
 
@@ -83,13 +98,13 @@ class Note extends React.Component {
   handleTitleChange(e) {
     clearTimeout(this.saveTimer);
     this.setState({ title: e.currentTarget.value })
-    this.saveTimer = setTimeout( this.handleSave, 3000);
+    this.saveTimer = setTimeout( this.autoSave, 3000);
   }
 
   handleBodyChange(text) {
     clearTimeout(this.saveTimer);
     this.setState({ body: text })
-    this.saveTimer = setTimeout( this.handleSave, 3000);
+    this.saveTimer = setTimeout( this.autoSave, 3000);
   }
 
   render() {

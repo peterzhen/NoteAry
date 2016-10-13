@@ -77,8 +77,13 @@ class NotebookListItem extends React.Component {
     let selected = "notebook-item-li"
     if (this.props.currentNotebook){
       if (this.props.notebook.id === this.props.currentNotebook.id) {
-        selected += " selected";
+        selected += " selectedNotebook";
       }
+    }
+
+    let deleteButton = "delete-notebook-button";
+    if (this.props.notebooks.length === 1){
+      deleteButton += " default-notebook";
     }
 
     return (
@@ -90,11 +95,11 @@ class NotebookListItem extends React.Component {
           </div>
 
           <button
-            className="edit-notebook-button"
+            className={"edit-notebook-button"}
             onClick={this.openUpdateModal}></button>
 
           <button
-            className="delete-notebook-button"
+            className={ deleteButton }
             onClick={this.openDeleteModal}></button>
         </div>
 
