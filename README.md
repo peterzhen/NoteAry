@@ -2,116 +2,50 @@
 
 [NoteAry link][noteary]
 
-[noteary]: https://github.com/peterzhen/NoteAry
+[noteary]: http://noteary.herokuapp.com/
 
-## Minimum Viable Product
+NoteAry is a web application inspired by Evernote built using Ruby on Rails and React/Redux.
 
-FresherNote is a web application inspired by Evernote built using Ruby on Rails and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] Notes
-- [ ] Notebooks for organizing notes
-- [ ] Tags
-- [ ] Rich Text Editing
-- [ ] Production README
+## Features & Implementation
 
-## Design Docs
-* [View Wireframes][wireframes]
-* [React Components][components]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
-* [Redux Structure][redux-structure]
-* [Sample State][sample-state]
+![image of homepage](screens/homepage.png)
 
-[wireframes]: docs/wireframes
-[components]: docs/component-heirarchy.md
-[redux-structure]: docs/redux-structure.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+### Toolbar
 
-## Implementation Timeline
+  Everything that can be done to your note is done through the note's toolbar.  It can be seen right above the note's show page, between the title and the body.  You can add tags, change notebooks, save and delete your note from here.  
 
-### Phase 1: Backend setup and Front End User Authentication (2 days)
+![image of toolbar](screens/toolbar.png)
 
-**Objective:** Functioning rails project with front-end Authentication
+### Notes
 
-- [ ] New Rails project
-- [ ] `User` model/migration
-- [ ] Back end authentication (session/password)
-- [ ] `StaticPages` controller and root view
-- [ ] Webpack & react/redux modules
-- [ ] `APIUtil` to interact with the API
-- [ ] Redux cycle for frontend authentication
-- [ ] User signup/signin components
-- [ ] Blank landing component after signup/signin
-- [ ] Style signup/signin components
-- [ ] Seed users
-- [ ] Review phase 1
+  Notes are all stored on the database and it's fetched when the user is logged in.  Note's are all editable and everything is auto-saved on the fly.  
+  Notes are sorted through last updated and it can be seen live when you edit your notes in NoteAry.  All edits are updated on the database side and
+  it's results are pushed back to the client side.  
 
-### Phase 2: Notes Model, API, and components (2 days)
+  You can edit the notes in style.  All notes allow complex styling which include rich text editing.  You can include pictures, hyperlinks and much more.
+  Below is an example with a resume thats formatted, ready to submit to a hungry employer.
+![image of resume](screens/resume.png)
 
-**Objective:** Notes can be created, read, edited and destroyed through
-the API.
+  Pictures can be included to give your notes some flare.  There is no need to do anything fancy, just paste it or click on the image icon to upload.
 
-- [ ] `Note` model
-- [ ] Seed database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] JBuilder views for notes
-- Note components and respective Redux loops
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] Autosave notes feature
-- [ ] Style notes components
-- [ ] Seed notes
+![image of pictures](screens/pictures.png)  
 
-### Phase 3: Notebooks (2 day)
+### Notebooks
 
-**Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
+  Notebooks are a great way to organize your notes so you don't juggle through your notes.  All notes are part of a notebook and you when you sign up,
+  you are automatically created a default notebook.  Notebooks can be seen when you hit the notebooks icon on the sidebar.  This brings up the notebooks drawer
+  which shows all your current notebooks.  You can edit, delete and select from this drawer.
 
-- [ ] `Notebook` model
-- [ ] Seed database with a small amount of test data
-- [ ] CRUD API for notes (`NotebooksController`)
-- [ ] JBuilder views for notebooks
-- [ ] Adding notes requires a notebook
-- [ ] Moving notes between notebooks
-- [ ] Viewing notes by notebook
-- [ ] Style notebook components
-- [ ] Seed notebooks
+![image of notebooks drawer](screens/notebooks.png)
 
-### Phase 4: Tags (1 days)
+  When you click on a notebook your note's list is automatically filtered to show only this notebook's notes.  When you delete a notebook, all notes that
+  live inside of that notebook get deleted as well.  In the note's show page you can always change where your note lives by clicking the drop down and choosing a new notebook home for that note.  The notebook's drawer and the note's index will update live.  Since everything is done in react, all components update individually, and only when needed.
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+### Tags
 
-- [ ] `Tag` model and `Taggings` join table
-- [ ] Fetching tags for notes
-- [ ] Adding tags to notes
-- [ ] Searching notes by tag
-- [ ] Style search & tag components
-- [ ] Seed tags with seed data
+  Tags might be an even better way to sort through your notes.  It's effortless to add a tag to a note.  Simply type it in on the note's show page, hit enter and its there.  if the tag doesn't already exist, it will create it.  If it does exist, it won't do anything.  The database is only updated when needed and all components are updated when needed.
 
-### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+  Tags are created with a tags table and a tagging join table in the backend.  It links tags to notes, and if you simply want to remove the association, hitting delete just deletes the join.
 
-**objective:** Allow rich text editing of notes.
-
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Rails helpers to sanitize HTML before rendering.
-- [ ] Style Quill components.
-- [ ] Add Quill styling to seeded notes
-
-### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
-
-**objective:** Add infinite scroll to Notes Index
-
-- [ ] Paginate Notes Index API to send 20 results at a time
-- [ ] Append next set of results when user scrolls and is near bottom
-- [ ] Style scroll components and transitions
-- [ ] Ensure seed data demonstrates infinite scroll
-
-### Bonus Features (TBD)
-- [ ] Search notes by content
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+![tag screenshot](screens/tags.png)
