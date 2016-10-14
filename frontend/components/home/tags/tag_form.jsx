@@ -35,7 +35,8 @@ class TagForm extends React.Component {
             tags={ this.state.currentTags }
             labelField={'name'}
             handleDelete={ this.handleDelete }
-            handleAddition={ this.handleAddition }/>
+            handleAddition={ this.handleAddition }
+            allowDeleteFromEmptyInput={false}/>
       </div>
     );
   }
