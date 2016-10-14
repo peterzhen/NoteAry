@@ -10,6 +10,7 @@ class TagForm extends React.Component {
 
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
+    this.refreshTags = this.refreshTags.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -18,14 +19,20 @@ class TagForm extends React.Component {
     }
   }
 
+  refreshTags(){
+    this.props.requestNotesTags(this.props.note);
+    this.props.requestTags();
+  }
+
   handleDelete(idx){
     this.props.destroyTagging(this.props.tags[idx], this.props.note.id);
-    this.props.requestNotesTags(this.props.note);
+    this.refreshTags();
+
   }
 
   handleAddition(tag){
     this.props.createTag(tag, this.props.note.id);
-    this.props.requestNotesTags(this.props.note);
+    this.refreshTags();
   }
 
   render(){
