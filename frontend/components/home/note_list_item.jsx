@@ -45,8 +45,12 @@ class NoteListItem extends React.Component {
         <div className="empty-title">Untitled Note</div>
       );
     }else{
+      let title = this.props.note.title;
+      if (title.length > 20){
+        title = title.slice(0,20) + "...";
+      }
       return (
-        <div>{this.props.note.title}</div>
+        <div>{ title }</div>
       );
     }
   }

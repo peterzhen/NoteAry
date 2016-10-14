@@ -69,17 +69,20 @@ class Note extends React.Component {
   }
 
   handleSave(e){
-    const oldTitle = this.props.currentNote.title;
-    const oldBody = this.props.currentNote.body;
-    const newTitle = this.state.title;
-    const newBody = this.state.body;
-    if ( oldTitle !== newTitle || oldBody !== newBody ){
-      clearTimeout(this.saveTimer);
-      this.props.updateNote(this.state);
-      this.msg.success('saved');
-    } else {
-      this.msg.info('no changes were made');
-    }
+    clearTimeout(this.saveTimer);
+    this.props.updateNote(this.state);
+    this.msg.success('saved');
+    // const oldTitle = this.props.currentNote.title;
+    // const oldBody = this.props.currentNote.body;
+    // const newTitle = this.state.title;
+    // const newBody = this.state.body;
+    // if ( oldTitle !== newTitle || oldBody !== newBody ){
+    //   clearTimeout(this.saveTimer);
+    //   this.props.updateNote(this.state);
+    //   this.msg.success('saved');
+    // } else {
+    //   this.msg.info('no changes were made');
+    // }
   }
 
   handleDelete(e){
