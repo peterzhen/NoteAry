@@ -1,9 +1,9 @@
 development:
-  s3_bucket: "noteary-dev"
+  s3_bucket: "NOTEARY-DEV"
 
 production:
-  s3_bucket: "noteary-pro"
+  s3_bucket: "NOTEARY-PRO"
 
 s3_region:  "us-east-1"
-s3_access_key_id: "AKIAIGMSJ6XZ6FELC2KA"
-s3_secret_access_key: "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"
+s3_access_key_id: "AKIAJYARKYQPDPODBJ4Q"
+s3_secret_access_key: "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"
