@@ -1,0 +1,35 @@
+.tags-index-list {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tag-item-container {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 5px 10px;
+  margin: 10px;
+  border: 1px solid lightgrey;
+  height: 20px;
+  background: #f7f7f7;
+  font-size: 15px;
+  color: #2dbe60;
+  transition: background .3s ease-in-out;
+  border-radius: 5px;
+}
+
+.tag-item-container:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #2dbe60;
+}
+
+.tag-item-delete-button {
+  margin-left: 15px;
+  color: darkgrey;
+}
+
+.tag-item-container:hover .tag-item-delete-button {
+  color: #fff;
+}

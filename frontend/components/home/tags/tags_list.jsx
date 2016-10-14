@@ -24,14 +24,14 @@ class TagsList extends React.Component {
 
   renderTags() {
     return(
-      <ul className="tag-item-ul">
+      <div className="tags-index-list">
         {this.props.tags.map((tag, idx) => (
           <TagsListItemContainer
             key={`tag-${idx}`}
             tag={ tag }
             closeDrawer={ this.props.closeTagsDrawer } />
         ))}
-      </ul>
+      </div>
     );
   }
 
@@ -42,12 +42,6 @@ class TagsList extends React.Component {
           <div className="drawer-index-title">TAGS</div>
           <div className="drawer-count">{`${this.props.tags.length} Tags`}</div>
 
-          <div className="drawer-add-button-container">
-            <button
-              className="drawer-add-button"
-              onClick={ this.openTagsModal }/>
-          </div>
-
           <div className="drawer-close-button-container">
             <button
               className="drawer-close-button"
@@ -55,9 +49,7 @@ class TagsList extends React.Component {
           </div>
         </div>
 
-        <div className="tags-index-list">
-          { this.renderTags() }
-        </div>
+        { this.renderTags() }
 
       </div>
     );

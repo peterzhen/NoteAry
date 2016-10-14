@@ -152,13 +152,13 @@ class Note extends React.Component {
             </div>
 
             <div className="form-tags-container">
-              <button
-                className="form-tags-button"
-                onClick={ this.handleTags }></button>
+              <div className="form-tags-button"></div>
               <div className="tags-tool-tooltip">TAGS</div>
             </div>
 
             <TagFormContainer note={ this.props.currentNote }/>
+
+
 
           </div>
 

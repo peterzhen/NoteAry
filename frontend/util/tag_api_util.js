@@ -16,10 +16,30 @@ export const getNotesTags = (note, success, error) => {
 	});
 };
 
-export const createTag = (tag, success, error) => {
+export const createTag = (tag, note_id, success, error) => {
 	$.ajax({
-		method: 'GET',
-		url: `/api/tags/${tag.id}`,
+		method: 'POST',
+		url: "/api/tags/",
+		data: {tag: {name: `${tag}`, note_id: `${note_id}`}},
+		success,
+		error
+	});
+};
+
+export const destroyTag = (id, success, error) => {
+	$.ajax({
+		method: 'DELETE',
+		url: `/api/tags/${id}`,
+		success,
+		error
+	});
+};
+
+export const destroyTagging = (tag, note_id, success, error) => {
+	$.ajax({
+		method: 'DELETE',
+		url: `/api/tagging/${tag.id}`,
+		data: {tag: {id: `${tag.id}`, note_id: `${note_id}`}},
 		success,
 		error
 	});

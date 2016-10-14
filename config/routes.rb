@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   get 'api/notes/:id/tags', to: 'api/notes#tags'
+  delete 'api/tagging/:id', to: 'api/tags#destroyTagging'
 end

@@ -12,22 +12,20 @@ class TagForm extends React.Component {
     this.handleAddition = this.handleAddition.bind(this);
   }
 
-  // componentWillMount(){
-  //   this.setState(this.props.note);
-  // }
-  //
   componentWillReceiveProps(nextProps){
     if( nextProps.note ){
       this.setState({ currentTags: nextProps.tags });
     }
   }
 
-  handleDelete(e){
-
+  handleDelete(idx){
+    this.props.destroyTagging(this.props.tags[idx], this.props.note.id);
+    this.props.requestNotesTags(this.props.note);
   }
 
-  handleAddition(e){
-
+  handleAddition(tag){
+    this.props.createTag(tag, this.props.note.id);
+    this.props.requestNotesTags(this.props.note);
   }
 
   render(){

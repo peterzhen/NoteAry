@@ -10,6 +10,7 @@ class TagsListItem extends React.Component {
     }
 
     this.handleSelectTag = this.handleSelectTag.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.openDeleteModal = this.openDeleteModal.bind(this);
     this.closeDeleteModal = this.closeDeleteModal.bind(this);
   }
@@ -38,15 +39,30 @@ class TagsListItem extends React.Component {
     }
   }
 
+  handleDelete(e){
+    e.stopPropagation();
+    this.props.destroyTag(this.props.tag.id);
+    this.props.requestTags();
+    this.props.requestNotesTags(this.props.currentNote);
+    if (this.props.currentTag){
+      debugger
+      if (this.props.currentTag.id === this.props.tag.id){
+        debugger
+        this.props.switchTag(null);
+        this.props.switchNotebook(null);
+      }
+    }
+  }
+
   render(){
     return(
-      <li className="tag-item-li" onClick={ this.handleSelectTag }>
-        <div className="tag-item-container">
-          <div className="tag-item-name">{ this.props.tag.name }</div>
+      <div className="tag-item-container" onClick={ this.handleSelectTag }>
+        <div className="tag-item-name">{ this.props.tag.name }</div>
 
-          <button className="tag-item-delete-button"/>
-        </div>
-      </li>
+        <button
+          className="tag-item-delete-button"
+          onClick={ this.handleDelete }>x</button>
+      </div>
     );
   }
 }

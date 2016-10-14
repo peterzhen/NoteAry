@@ -178,6 +178,10 @@
   position: relative;
 }
 
+.tag-item-name {
+  padding-top: 1px;
+}
+
 .form-tags-button {
   display: block;
   background-repeat: no-repeat;
@@ -191,7 +195,6 @@
 
 .form-tags-button:hover {
   background-image: image-url("tags-toolbar-clicked.png");
-  cursor: pointer;
 }
 
 .tags-tool-tooltip {

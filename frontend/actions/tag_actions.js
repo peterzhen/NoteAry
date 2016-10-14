@@ -2,9 +2,11 @@ export const REQUEST_TAGS = "REQUEST_TAGS";
 export const RECEIVE_TAGS = "RECEIVE_TAGS";
 export const REQUEST_TAG = "REQUEST_TAG";
 export const RECEIVE_TAG = "RECEIVE_TAG";
-export const CREATE_TAG = "RECEIVE_TAG";
+export const CREATE_TAG = "CREATE_TAG";
 export const DESTROY_TAG = "DESTROY_TAG";
+export const DESTROY_TAGGING = "DESTROY_TAGGING";
 export const REMOVE_TAG = "REMOVE_TAG";
+export const REMOVE_TAGGING = "REMOVE_TAGGING";
 export const SWITCH_TAG = "SWITCH_TAG";
 export const REQUEST_NOTES_TAGS = "REQUEST_NOTES_TAGS";
 export const RECEIVE_NOTES_TAGS = "RECEIVE_NOTES_TAGS";
@@ -35,13 +37,24 @@ export const createTag = (tag, note_id) => ({
   note_id
 });
 
-export const destroyTag = tag => ({
+export const destroyTag = id => ({
   type: DESTROY_TAG,
-  tag
+  id
+})
+
+export const destroyTagging = (tag, note_id) => ({
+  type: DESTROY_TAGGING,
+  tag,
+  note_id
 })
 
 export const removeTag = tag => ({
   type: REMOVE_TAG,
+  tag
+})
+
+export const removeTagging = tag => ({
+  type: REMOVE_TAGGING,
   tag
 })
 
