@@ -29,10 +29,9 @@ class Note extends React.Component {
     this.handleSave = this.handleSave.bind(this);
     this.autoSave = this.autoSave.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleNotebooks = this.handleNotebooks.bind(this);
-    this.handleTags = this.handleTags.bind(this);
     this.openDeleteModal = this.openDeleteModal.bind(this);
     this.closeDeleteModal = this.closeDeleteModal.bind(this);
+    this.handleAlert = this.handleAlert.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -40,6 +39,7 @@ class Note extends React.Component {
       if (nextProps.currentNote.id !== this.state.id){
         if (this.props.currentNote && this.props.notebooks.length > 0){
           if (this.props.currentNote.title !== this.state.title || this.props.currentNote.body !== this.state.body){
+            clearTimeout(this.saveTimer);
             this.handleSave();
           }
         }
@@ -69,21 +69,20 @@ class Note extends React.Component {
     }
   }
 
+  handleAlert(type, alert){
+    if (type === "success"){
+      this.msg.success(alert);
+    } else if (type === "error"){
+      this.msg.error(alert);
+    } else {
+      this.msg.info(alert);
+    }
+  }
+
   handleSave(e){
     clearTimeout(this.saveTimer);
     this.props.updateNote(this.state);
     this.msg.success('saved');
-    // const oldTitle = this.props.currentNote.title;
-    // const oldBody = this.props.currentNote.body;
-    // const newTitle = this.state.title;
-    // const newBody = this.state.body;
-    // if ( oldTitle !== newTitle || oldBody !== newBody ){
-    //   clearTimeout(this.saveTimer);
-    //   this.props.updateNote(this.state);
-    //   this.msg.success('saved');
-    // } else {
-    //   this.msg.info('no changes were made');
-    // }
   }
 
   handleDelete(e){
@@ -91,14 +90,6 @@ class Note extends React.Component {
     this.msg.error('deleted');
     this.props.switchNote(null);
     this.closeDeleteModal()
-  }
-
-  handleNotebooks(e){
-
-  }
-
-  handleTags(e){
-
   }
 
   handleTitleChange(e) {
@@ -153,14 +144,17 @@ class Note extends React.Component {
               <div className="notebooks-tool-tooltip">NOTEBOOKS</div>
             </div>
 
-            <NotebookSelectContainer/>
+            <NotebookSelectContainer
+              alert={ this.handleAlert }/>
 
             <div className="form-tags-container">
               <div className="form-tags-button"></div>
               <div className="tags-tool-tooltip">TAGS</div>
             </div>
 
-            <TagFormContainer note={ this.props.currentNote }/>
+            <TagFormContainer
+              note={ this.props.currentNote }
+              alert={ this.handleAlert }/>
           </div>
 
           <div className="note-form-container">

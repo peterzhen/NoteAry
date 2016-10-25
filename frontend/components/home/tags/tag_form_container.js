@@ -5,10 +5,13 @@ import { createTag,
          destroyTagging,
          requestNotesTags,
          requestTags } from '../../../actions/tag_actions';
+import { requestTaggedNotes } from '../../../actions/note_actions';
+
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    tags: state.tags.currentNotesTags
+    tags: state.tags.currentNotesTags,
+    selectedTag: state.tags.currentTag
   });
 };
 
@@ -18,7 +21,8 @@ const mapDispatchToProps = ( dispatch, ownProps ) => {
     destroyTag: (tag) => dispatch(destroyTag(tag)),
     destroyTagging: (tag, note_id) => dispatch(destroyTagging(tag, note_id)),
     requestNotesTags: (note) => dispatch(requestNotesTags(note)),
-    requestTags: () => dispatch(requestTags())
+    requestTags: () => dispatch(requestTags()),
+    requestTaggedNotes: (tag) => dispatch(requestTaggedNotes(tag))
   });
 };
 

@@ -52,6 +52,7 @@ class NotebookSelect extends React.Component {
     });
     this.props.updateNote(updatedNote);
     this.setState(this.selectCurrentState());
+    this.props.alert("success", "Notebook Switched");
     // this.props.requestNotes();
     // this.props.requestNotebooks();
   }

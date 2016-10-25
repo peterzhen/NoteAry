@@ -166,6 +166,7 @@
   border-radius: 5px;
   top: 25px;
   left: -25px;
+  z-index: 999999;
 }
 
 .form-notebooks-container:hover .notebooks-tool-tooltip {
@@ -209,6 +210,7 @@
   border-radius: 5px;
   top: 25px;
   left: -7px;
+  z-index: 999999;
 }
 
 .form-tags-container:hover .tags-tool-tooltip {

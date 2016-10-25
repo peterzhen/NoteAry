@@ -45,9 +45,7 @@ class TagsListItem extends React.Component {
     this.props.requestTags();
     this.props.requestNotesTags(this.props.currentNote);
     if (this.props.currentTag){
-      debugger
       if (this.props.currentTag.id === this.props.tag.id){
-        debugger
         this.props.switchTag(null);
         this.props.switchNotebook(null);
       }
