@@ -9,13 +9,16 @@ class Splash extends React.Component {
     super(props);
     this.state = {
       loginModalOpen: false,
+      demoModalOpen: false,
       signupModalOpen: false
     }
 
     this.openLoginModal = this.openLoginModal.bind(this);
-    this.closeLoginModal = this.closeLoginModal.bind(this);
-
+    this.openDemoModal = this.openDemoModal.bind(this);
     this.openSignupModal = this.openSignupModal.bind(this);
+
+    this.closeLoginModal = this.closeLoginModal.bind(this);
+    this.closeDemoModal = this.closeDemoModal.bind(this);
     this.closeSignupModal = this.closeSignupModal.bind(this);
 
     this.demoLogin = this.demoLogin.bind(this);
@@ -27,6 +30,14 @@ class Splash extends React.Component {
 
   closeLoginModal() {
     this.setState({ loginModalOpen: false });
+  }
+
+  openDemoModal() {
+    this.setState({ demoModalOpen: true });
+  }
+
+  closeDemoModal() {
+    this.setState({ demoModalOpen: false });
   }
 
   openSignupModal() {
@@ -61,7 +72,7 @@ class Splash extends React.Component {
           <br/>
           <button className="splash-signup-button" onClick={this.openSignupModal}>Sign Up</button>
           <br/>
-          <button className="demo-login-button" onClick={this.demoLogin}>Demo</button>
+          <button className="demo-login-button" onClick={this.openDemoModal}>Demo</button>
         </section>
 
         <Modal
@@ -71,7 +82,19 @@ class Splash extends React.Component {
 
           <SessionFormContainer
             formType={"login"}
+            demo={"false"}
             closeModal={this.closeLoginModal}/>
+        </Modal>
+
+        <Modal
+          isOpen={this.state.demoModalOpen}
+          style={ SessionModalStyle }
+          onRequestClose={this.closeDemoModal}>
+
+          <SessionFormContainer
+            formType={"login"}
+            demo={"true"}
+            closeModal={this.closeDemoModal}/>
         </Modal>
 
         <Modal
