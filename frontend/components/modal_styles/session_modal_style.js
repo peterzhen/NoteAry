@@ -5,7 +5,7 @@ export const SessionModalStyle = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(237, 237, 237, 0.75)'
+    backgroundColor: 'rgba(150, 150, 150, 0.75)'
   },
   content: {
     position: 'fixed',
