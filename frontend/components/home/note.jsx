@@ -32,6 +32,7 @@ class Note extends React.Component {
     this.openDeleteModal = this.openDeleteModal.bind(this);
     this.closeDeleteModal = this.closeDeleteModal.bind(this);
     this.handleAlert = this.handleAlert.bind(this);
+    this.renderUser = this.renderUser.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -104,6 +105,14 @@ class Note extends React.Component {
     this.saveTimer = setTimeout( this.autoSave, 3000);
   }
 
+  renderUser(){
+    if (this.props.currentUser){
+      return(
+        <div className="current-user-info">LOGGED IN AS: { this.props.currentUser.username }</div>
+      );
+    }
+  }
+
   render() {
     if(this.props.noteCount === 0) {
       return (
@@ -115,7 +124,7 @@ class Note extends React.Component {
       return(
         <div className='note-container'>
           <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
-          <div className="current-user-info">LOGGED IN AS: { this.props.currentUser.username }</div>
+          { this.renderUser() }
           <div className="note-header-container">
             <input
               className="note-title-form"
