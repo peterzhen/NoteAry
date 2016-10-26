@@ -39,8 +39,8 @@ class Note extends React.Component {
     if (nextProps.currentNote){
       if (nextProps.currentNote.id !== this.state.id){
         if (this.props.currentNote && this.props.notebooks.length > 0){
+          clearTimeout(this.saveTimer);
           if (this.props.currentNote.title !== this.state.title || this.props.currentNote.body !== this.state.body){
-            clearTimeout(this.saveTimer);
             this.handleSave();
           }
         }
