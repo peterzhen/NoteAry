@@ -26,12 +26,17 @@
   background-color: rgb(110, 110, 110);
 }
 
+
 .splash-logo {
   height: 320px;
   width: 260px;
   background-image: image-url("noteary-splash-logo.png");
   background-repeat: no-repeat;
   transition: all .3s ease-in-out;
+}
+
+.splash-items:hover .splash-logo {
+  transform: scale(1.03);
 }
 
 .phrase1 {
@@ -47,10 +52,6 @@
   font-family: 'Varela Round';
   font-weight: bold;
   margin-bottom: 20px;
-}
-
-.splash-logo:hover {
-  transform: scale(1.03);
 }
 
 .splash-buttons > button  {

@@ -7,7 +7,13 @@ class Api::UsersController < ApplicationController
 			login(@user)
 			render :show
 		else
-			render json: @user.errors.full_messages, status: 422
+      error_messages = @user.errors.full_messages
+      if error_messages.include?("Password digest can't be blank")
+        error_messages.each_with_index do |message, idx|
+          error_messages[idx] = "Password can't be blank" if message == "Password digest can't be blank"
+        end
+      end
+			render json: error_messages, status: 422
 		end
 	end
 
