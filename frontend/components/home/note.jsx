@@ -115,6 +115,7 @@ class Note extends React.Component {
       return(
         <div className='note-container'>
           <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
+          <div className="current-user-info">LOGGED IN AS: { this.props.currentUser.username }</div>
           <div className="note-header-container">
             <input
               className="note-title-form"

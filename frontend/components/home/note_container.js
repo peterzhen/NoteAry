@@ -7,7 +7,8 @@ const mapStateToProps = state => {
   return ({
     currentNote: state.notes.currentNote,
     noteCount: state.notes.notes.length,
-    notebooks: state.notebooks.notebooks
+    notebooks: state.notebooks.notebooks,
+    currentUser: state.session.currentUser
   });
 };
 
