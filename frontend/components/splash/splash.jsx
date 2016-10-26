@@ -72,9 +72,7 @@ class Splash extends React.Component {
             <div className="phrase1">GET ALL YOUR THOUGHTS</div>
             <div className="phrase2">NOTE-ARIZED</div>
             <button className="splash-signup-button" onClick={this.openSignupModal}>Sign Up</button>
-            <br/>
             <button className="splash-login-button" onClick={this.openLoginModal}>Log In</button>
-            <br/>
             <button className="demo-login-button" onClick={this.demoLogin}>Demo</button>
           </section>
         </div>
