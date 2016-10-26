@@ -66,14 +66,18 @@ class Splash extends React.Component {
   render(){
     return(
       <div className="login-signup">
-        <h1 className="splash-logo">NoteAry</h1>
-        <section className="splash-buttons">
-          <button className="splash-login-button" onClick={this.openLoginModal}>Log In</button>
-          <br/>
-          <button className="splash-signup-button" onClick={this.openSignupModal}>Sign Up</button>
-          <br/>
-          <button className="demo-login-button" onClick={this.demoLogin}>Demo</button>
-        </section>
+        <div className="splash-items">
+          <div className="splash-logo"></div>
+          <section className="splash-buttons">
+            <div className="phrase1">GET ALL YOUR THOUGHTS</div>
+            <div className="phrase2">NOTE-ARIZED</div>
+            <button className="splash-signup-button" onClick={this.openSignupModal}>Sign Up</button>
+            <br/>
+            <button className="splash-login-button" onClick={this.openLoginModal}>Log In</button>
+            <br/>
+            <button className="demo-login-button" onClick={this.demoLogin}>Demo</button>
+          </section>
+        </div>
 
         <Modal
           isOpen={this.state.loginModalOpen}

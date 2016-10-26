@@ -9,12 +9,48 @@
   overflow: auto;
 }
 
+.splash-items {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 320px;
+  width: 600px;
+  margin: 10% auto;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(125, 125, 125, 0.80);
+  transition: all .3s ease-in-out;
+}
+
+.splash-items:hover {
+  background-color: rgb(110, 110, 110);
+}
+
 .splash-logo {
-  font-family: 'Shrikhand';
-  font-size: 150px;
+  height: 320px;
+  width: 260px;
+  background-image: image-url("noteary-logo.png");
+  background-repeat: no-repeat;
+  transition: all .3s ease-in-out;
+}
+
+.phrase1 {
   color: #2dbe60;
-  font-weight: lighter;
-  text-shadow: 1px 1px 2px black;
+  font-size: 18px;
+  font-family: 'Varela Round';
+  font-weight: bold;
+}
+
+.phrase2 {
+  color: #2dbe60;
+  font-size: 35px;
+  font-family: 'Varela Round';
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.splash-logo:hover {
+  transform: scale(1.03);
 }
 
 .splash-buttons > button  {
@@ -22,7 +58,7 @@
   border-radius: 11px;
   font-family: 'Varela Round';
   color: #ffffff;
-  width: 200px;
+  width: 150px;
   height: 25px;
   font-size: 16px;
   background: #2dbe60;
@@ -30,7 +66,6 @@
   text-decoration: none;
   text-transform: uppercase;
   border-style: none;
-  box-shadow: 1px 1px 2px black;
   transition: all .3s ease-in-out;
 }
 
@@ -38,9 +73,12 @@
   background: #1ba34b;
   text-decoration: none;
   cursor: pointer;
+  transform: scale(1.02);
 }
 
 .splash-buttons {
+  margin-top: 30px;
+  width: 320px;
 }
 
 .session-errors{
