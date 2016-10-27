@@ -13,7 +13,7 @@ class NotebookSelect extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if (nextProps.currentNote){
+    if (this.props.currentNote && nextProps.currentNote){
       if (nextProps.currentNote.id !== this.props.currentNote.id){
         this.setState(this.selectCurrentState(nextProps.currentNote));
       }

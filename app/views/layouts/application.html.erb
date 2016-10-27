@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= favicon_link_tag 'favicon.ico' %>
   <title>NoteAry</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -36,7 +37,8 @@
       tagsToolClicked: "<%= image_url("tags-toolbar-clicked.png") %>",
       tagsToolUnclicked: "<%= image_url("tags-toolbar-unclicked.png") %>",
       notearyLogo: "<%= image_url("noteary-splash-logo.png") %>",
-      splashLogo: "<%= image_url("splash-logo.png") %>"
+      splashLogo: "<%= image_url("splash-logo.png") %>",
+      favicon: "<%= image_url("favicon.ico") %>"
     }
   </script>
 </head>
