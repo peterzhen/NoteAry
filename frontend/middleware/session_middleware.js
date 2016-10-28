@@ -13,9 +13,10 @@ export default ({getState, dispatch}) => next => action => {
     const errors = xhr.responseJSON;
     dispatch(receiveErrors(errors));
   };
+  let user;
   switch(action.type){
     case LOGIN:
-      let user = action.user;
+      user = action.user;
       user.user.username = user.user.username.toLowerCase();
       login(user, successCallback, errorCallback);
       return next(action);
@@ -23,7 +24,9 @@ export default ({getState, dispatch}) => next => action => {
       logout(() => next(action));
       break;
     case SIGNUP:
-      signup(action.user, successCallback, errorCallback);
+      user = action.user;
+      user.user.username = user.user.username.toLowerCase();
+      signup(user, successCallback, errorCallback);
       return next(action);
     default:
       return next(action);

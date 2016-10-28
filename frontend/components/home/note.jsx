@@ -117,6 +117,7 @@ class Note extends React.Component {
     if(this.props.noteCount === 0) {
       return (
         <div className="note-container-empty">
+          { this.renderUser() }
           <img src={window.notearyAssets.loadingNotebook}></img>
         </div>
       );
