@@ -15,7 +15,9 @@ export default ({getState, dispatch}) => next => action => {
   };
   switch(action.type){
     case LOGIN:
-      login(action.user, successCallback, errorCallback);
+      let user = action.user;
+      user.user.username = user.user.username.toLowerCase();
+      login(user, successCallback, errorCallback);
       return next(action);
     case LOGOUT:
       logout(() => next(action));
