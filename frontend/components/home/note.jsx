@@ -23,6 +23,7 @@ class Note extends React.Component {
       time: 1500,
       transition: 'fade'
     };
+
     this.saveTimer;
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleBodyChange = this.handleBodyChange.bind(this);
