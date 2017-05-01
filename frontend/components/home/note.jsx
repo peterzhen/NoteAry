@@ -14,7 +14,7 @@ class Note extends React.Component {
       id: 0,
       title: "",
       body: ""
-    }
+    };
 
     this.alertOptions = {
       offset: 14,
@@ -40,7 +40,7 @@ class Note extends React.Component {
     if (nextProps.currentNote){
       if (nextProps.currentNote.id !== this.state.id){
         if (this.props.currentNote && this.props.notebooks.length > 0){
-          clearTimeout(this.saveTimer);
+          this.clearTimer();
           if (this.props.currentNote.title !== this.state.title || this.props.currentNote.body !== this.state.body){
             this.handleSave();
           }
@@ -62,10 +62,16 @@ class Note extends React.Component {
   autoSave(){
     if ( this.props.currentNote.title !== this.state.title ||
          this.props.currentNote.body !== this.state.body ){
-      clearTimeout(this.saveTimer);
+      this.clearTimer();
+      debugger
       this.props.updateNote(this.state);
       this.msg.success('saved');
     }
+  }
+
+  clearTimer(){
+    clearTimeout(this.saveTimer);
+    this.saveTimer = null;
   }
 
   handleAlert(type, alert){
@@ -79,7 +85,7 @@ class Note extends React.Component {
   }
 
   handleSave(e){
-    clearTimeout(this.saveTimer);
+    this.clearTimer();
     this.props.updateNote(this.state);
     this.msg.success('saved');
   }
@@ -88,18 +94,18 @@ class Note extends React.Component {
     this.props.destroyNote(this.props.currentNote);
     this.msg.error('deleted');
     this.props.switchNote(null);
-    this.closeDeleteModal()
+    this.closeDeleteModal();
   }
 
   handleTitleChange(e) {
-    clearTimeout(this.saveTimer);
-    this.setState({ title: e.currentTarget.value })
+    this.clearTimer();
+    this.setState({ title: e.currentTarget.value });
     this.saveTimer = setTimeout( this.autoSave, 3000);
   }
 
   handleBodyChange(text) {
-    clearTimeout(this.saveTimer);
-    this.setState({ body: text })
+    this.clearTimer();
+    this.setState({ body: text });
     this.saveTimer = setTimeout( this.autoSave, 3000);
   }
 
