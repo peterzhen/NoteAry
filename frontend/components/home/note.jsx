@@ -60,11 +60,8 @@ class Note extends React.Component {
   }
 
   autoSave(){
-    const oldTitle = this.props.currentNote.title;
-    const oldBody = this.props.currentNote.body;
-    const newTitle = this.state.title;
-    const newBody = this.state.body;
-    if ( oldTitle !== newTitle || oldBody !== newBody ){
+    if ( this.props.currentNote.title !== this.state.title ||
+         this.props.currentNote.body !== this.state.body ){
       clearTimeout(this.saveTimer);
       this.props.updateNote(this.state);
       this.msg.success('saved');
