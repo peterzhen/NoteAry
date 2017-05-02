@@ -24,6 +24,17 @@ class Note extends React.Component {
       transition: 'fade'
     };
 
+    this.modules = {
+      toolbar: [
+                [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+                ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [{ 'align': [] }],
+                [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+                [{ 'font': [] }],
+              ]
+    }
+
     this.editor;
     this.currentDelta = null;
     this.saveTimer;
@@ -191,8 +202,8 @@ class Note extends React.Component {
 
           <div className="note-form-container">
             <ReactQuill
-              ref='editor'
               theme='snow'
+              modules={this.modules}
               value={this.state.body}
               onChange={this.handleBodyChange}
               ref={editor => { this.editor = editor; }}
