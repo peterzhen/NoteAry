@@ -24,7 +24,7 @@
   background-image: image-url("close-unclicked.png");
   background-size: 32px 32px;
   background-repeat: no-repeat;
-  transition: background .3s ease-in-out;
+  transition: background .1s ease-in-out;
   right: 0px;
   top: -10px;
 }
@@ -41,7 +41,7 @@
   height: 60px;
   padding: 10px;
   border-bottom: 1px solid #ededed;
-  transition: background .3s ease-in-out;
+  transition: background .1s ease-in-out;
   color: #7f7f7f;
 }
 

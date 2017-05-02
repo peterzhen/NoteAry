@@ -14,7 +14,7 @@
   background-image: image-url("close-unclicked.png");
   background-size: 32px 32px;
   background-repeat: no-repeat;
-  transition: background .3s ease-in-out;
+  transition: background .1s ease-in-out;
   right: -10px;
   top: -30px;
 }
@@ -59,7 +59,7 @@
   border-style: none;
   margin: 20px;
   box-shadow: 1.5px 1.5px 2px black;
-  transition: all .3s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .session-submit:hover {

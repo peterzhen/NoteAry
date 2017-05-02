@@ -24,6 +24,8 @@ class Note extends React.Component {
       transition: 'fade'
     };
 
+    this.editor;
+    this.currentDelta = null;
     this.saveTimer;
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleBodyChange = this.handleBodyChange.bind(this);
@@ -36,15 +38,23 @@ class Note extends React.Component {
     this.renderUser = this.renderUser.bind(this);
   }
 
+  componentDidUpdate(){
+    if (this.props.noteCount > 0){
+      this.currentDelta = this.editor.getEditor().editor.delta;
+    }
+  }
+
   componentWillReceiveProps(nextProps){
     if (nextProps.currentNote){
       if (nextProps.currentNote.id !== this.state.id){
         if (this.props.currentNote && this.props.notebooks.length > 0){
           this.clearTimer();
-          if (this.props.currentNote.title !== this.state.title || this.props.currentNote.body !== this.state.body){
+          if (this.props.currentNote.title !== this.state.title
+            || this.editor.getEditor().editor.delta !== this.currentDelta){
             this.handleSave();
           }
         }
+        this.currentDelta = null;
         this.setState(nextProps.currentNote);
         this.props.requestNotesTags(nextProps.currentNote);
       }
@@ -61,9 +71,9 @@ class Note extends React.Component {
 
   autoSave(){
     if ( this.props.currentNote.title !== this.state.title ||
-         this.props.currentNote.body !== this.state.body ){
+         this.editor.getEditor().editor.delta !== this.currentDelta ){
       this.clearTimer();
-      debugger
+      this.currentDelta = this.editor.getEditor().editor.delta;
       this.props.updateNote(this.state);
       this.msg.success('saved');
     }
@@ -100,13 +110,20 @@ class Note extends React.Component {
   handleTitleChange(e) {
     this.clearTimer();
     this.setState({ title: e.currentTarget.value });
-    this.saveTimer = setTimeout( this.autoSave, 3000);
+    this.saveTimer = setTimeout( this.autoSave, 1000);
   }
 
-  handleBodyChange(text) {
+  handleBodyChange(content, delta) {
     this.clearTimer();
-    this.setState({ body: text });
-    this.saveTimer = setTimeout( this.autoSave, 3000);
+    if (this.currentDelta === null){
+      this.currentDelta = delta;
+    } else {
+      if (this.currentDelta !== delta){
+        this.setState({ body: content });
+        this.currentDelta = delta;
+        this.saveTimer = setTimeout( this.autoSave, 1000);
+      }
+    }
   }
 
   renderUser(){
@@ -178,6 +195,7 @@ class Note extends React.Component {
               theme='snow'
               value={this.state.body}
               onChange={this.handleBodyChange}
+              ref={editor => { this.editor = editor; }}
               getText={this.getText}></ReactQuill>
           </div>
 

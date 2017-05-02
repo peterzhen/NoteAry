@@ -19,7 +19,7 @@
   border-radius: 20px;
   padding: 20px;
   background-color: rgba(125, 125, 125, 0.80);
-  transition: all .3s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .splash-items:hover {
@@ -32,7 +32,7 @@
   width: 260px;
   background-image: image-url("noteary-splash-logo.png");
   background-repeat: no-repeat;
-  transition: all .3s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .splash-items:hover .splash-logo {
@@ -67,7 +67,7 @@
   text-decoration: none;
   text-transform: uppercase;
   border-style: none;
-  transition: all .3s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .splash-buttons > button:hover {

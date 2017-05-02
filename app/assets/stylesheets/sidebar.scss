@@ -34,7 +34,7 @@
   background-image: image-url("add-note-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
-  transition: all .5s ease-in-out;
+  transition: all .1s ease-in-out;
   position: relative;
 }
 
@@ -67,7 +67,7 @@
   background-image: image-url("notes-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
-  transition: all .5s ease-in-out;
+  transition: all .1s ease-in-out;
   position: relative;
 }
 
@@ -101,7 +101,7 @@
   background-image: image-url("notebooks-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
-  transition: all .5s ease-in-out;
+  transition: all .1s ease-in-out;
   position: relative;
 }
 
@@ -135,7 +135,7 @@
   background-image: image-url("tags-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
-  transition: all .5s ease-in-out;
+  transition: all .1s ease-in-out;
   position: relative;
 }
 
@@ -169,7 +169,7 @@
   background-image: image-url("logout-unclicked.png");
   background-size: 36px 36px;
   background-repeat: no-repeat;
-  transition: all .5s ease-in-out;
+  transition: all .1s ease-in-out;
   position: relative;
   justify-content: flex-end;
 }
@@ -199,7 +199,7 @@
 
 .avatar-image-container {
   margin: 0 auto;
-  transition: all .5s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .avatar-image-container:hover {
