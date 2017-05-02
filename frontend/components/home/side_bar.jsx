@@ -70,6 +70,7 @@ class SideBar extends React.Component{
 
   handleLogout(e){
     this.props.logout();
+    this.props.switchNote(null);
   }
 
   render (){

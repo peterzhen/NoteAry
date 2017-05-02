@@ -33,7 +33,7 @@ class Note extends React.Component {
                 [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
                 [{ 'font': [] }],
               ]
-    }
+    };
 
     this.editor;
     this.currentDelta = null;
