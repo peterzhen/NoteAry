@@ -36,16 +36,29 @@ class TagForm extends React.Component {
   }
 
   handleAddition(tag){
-    this.props.createTag(tag, this.props.note.id);
-    this.refreshTags();
-    this.props.alert("success", "Tag Added");
-    if (this.props.selectedTag){
-      if (this.props.selectedTag.name === tag){
-        this.props.requestTaggedNotes(this.props.selectedTag);
+    if (this.checkCurrentTags(tag)){
+      this.props.alert("error", "Tag Already Exists");
+    } else {
+      this.props.createTag(tag, this.props.note.id);
+      this.refreshTags();
+      this.props.alert("success", "Tag Added");
+      if (this.props.selectedTag){
+        if (this.props.selectedTag.name === tag){
+          this.props.requestTaggedNotes(this.props.selectedTag);
+        }
       }
     }
   }
 
+  checkCurrentTags(newTag){
+    for (let i = 0; i < this.props.tags.length; i++){
+      if (this.props.tags[i].name === newTag){
+        return true;
+      }
+    }
+
+    return false;
+  }
   render(){
     return(
       <div className="note-form-tags">

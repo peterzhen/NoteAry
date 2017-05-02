@@ -12,9 +12,14 @@ class NotebookSelect extends React.Component {
     this.selectCurrentState = this.selectCurrentState.bind(this);
   }
 
+  componentDidMount(){
+    this.setState(this.selectCurrentState());
+  }
+
   componentWillReceiveProps(nextProps){
+
     if (this.props.currentNote && nextProps.currentNote){
-      if (nextProps.currentNote.id !== this.props.currentNote.id){
+      if (nextProps.currentNote.id !== this.props.currentNote.id || this.props.currentNote === null){
         this.setState(this.selectCurrentState(nextProps.currentNote));
       }
     }
@@ -37,7 +42,7 @@ class NotebookSelect extends React.Component {
       if (notebook.id === currentNote.notebook_id){
         currentNotebook = notebook;
       }
-    })
+    });
     return currentNotebook;
   }
 
