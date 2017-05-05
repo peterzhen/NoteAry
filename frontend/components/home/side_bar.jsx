@@ -47,6 +47,7 @@ class SideBar extends React.Component{
     }
     const defaultNote = { "title": "", "body": "<p><br></p>", "notebook_id": `${notebookId}`};
     this.props.createNote(defaultNote);
+    alert.success("Notebook Created");
   }
 
   componentWillReceiveProps(nextProps){

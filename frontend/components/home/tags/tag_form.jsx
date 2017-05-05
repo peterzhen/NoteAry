@@ -27,7 +27,7 @@ class TagForm extends React.Component {
   handleDelete(idx){
     this.props.destroyTagging(this.props.tags[idx], this.props.note.id);
     this.refreshTags();
-    this.props.alert("error", "Tag Removed");
+    alert.error("Tag Removed");
     if (this.props.selectedTag){
       if (this.props.selectedTag.name === this.props.tags[idx].name){
         this.props.requestTaggedNotes(this.props.selectedTag);
@@ -37,11 +37,11 @@ class TagForm extends React.Component {
 
   handleAddition(tag){
     if (this.checkCurrentTags(tag)){
-      this.props.alert("error", "Tag Already Exists");
+      alert.error("Tag Already Exists");
     } else {
       this.props.createTag(tag, this.props.note.id);
       this.refreshTags();
-      this.props.alert("success", "Tag Added");
+      alert.success("Tag Added");
       if (this.props.selectedTag){
         if (this.props.selectedTag.name === tag){
           this.props.requestTaggedNotes(this.props.selectedTag);

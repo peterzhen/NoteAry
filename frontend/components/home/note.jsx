@@ -45,7 +45,6 @@ class Note extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.openDeleteModal = this.openDeleteModal.bind(this);
     this.closeDeleteModal = this.closeDeleteModal.bind(this);
-    this.handleAlert = this.handleAlert.bind(this);
     this.renderUser = this.renderUser.bind(this);
   }
 
@@ -86,7 +85,7 @@ class Note extends React.Component {
       this.clearTimer();
       this.currentDelta = this.editor.getEditor().editor.delta;
       this.props.updateNote(this.state);
-      this.msg.success('saved');
+      alert.success('saved');
     }
   }
 
@@ -95,25 +94,15 @@ class Note extends React.Component {
     this.saveTimer = null;
   }
 
-  handleAlert(type, alert){
-    if (type === "success"){
-      this.msg.success(alert);
-    } else if (type === "error"){
-      this.msg.error(alert);
-    } else {
-      this.msg.info(alert);
-    }
-  }
-
   handleSave(e){
     this.clearTimer();
     this.props.updateNote(this.state);
-    this.msg.success('saved');
+    alert.success('saved');
   }
 
   handleDelete(e){
     this.props.destroyNote(this.props.currentNote);
-    this.msg.error('deleted');
+    alert.error('deleted');
     this.props.switchNote(null);
     this.closeDeleteModal();
   }
@@ -156,7 +145,6 @@ class Note extends React.Component {
     } else {
       return(
         <div className='note-container'>
-          <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
           { this.renderUser() }
           <div className="note-header-container">
             <input
@@ -187,8 +175,7 @@ class Note extends React.Component {
               <div className="notebooks-tool-tooltip">NOTEBOOKS</div>
             </div>
 
-            <NotebookSelectContainer
-              alert={ this.handleAlert }/>
+            <NotebookSelectContainer />
 
             <div className="form-tags-container">
               <div className="form-tags-button"></div>
@@ -196,8 +183,7 @@ class Note extends React.Component {
             </div>
 
             <TagFormContainer
-              note={ this.props.currentNote }
-              alert={ this.handleAlert }/>
+              note={ this.props.currentNote }/>
           </div>
 
           <div className="note-form-container">
