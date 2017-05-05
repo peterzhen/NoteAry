@@ -17,36 +17,33 @@ class NotebookSelect extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-
-    if (this.props.currentNote && nextProps.currentNote){
-      if (nextProps.currentNote.id !== this.props.currentNote.id || this.props.currentNote === null){
+    if (nextProps.currentNote){
+      if (this.props.currentNote === null || nextProps.currentNote.id !== this.props.currentNote.id){
         this.setState(this.selectCurrentState(nextProps.currentNote));
       }
     }
   }
 
   mapNotebooks(){
-    let notebooks = this.props.notebooks.slice();
-    notebooks.map( (notebook, idx) => {
-      let notebookTitle = { label: notebook.title };
-      notebooks[idx] = Object.assign({}, notebook, notebookTitle);
+    let notebooks = [];
+    this.props.notebooks.forEach( (notebook, idx) => {
+      if (notebook.id !== this.state.id){
+        let notebookTitle = { label: notebook.title };
+        notebooks.push(Object.assign({}, notebook, notebookTitle));
+      }
     });
     return notebooks;
   }
 
   selectCurrentState(nextCurrentNote){
     let currentNote = nextCurrentNote || this.props.currentNote;
-    let notebooks = this.mapNotebooks();
     let currentNotebook = {};
-    notebooks.map( (notebook) => {
-      if (notebook.id === currentNote.notebook_id){
-        currentNotebook = notebook;
-      }
+    this.props.notebooks.forEach( notebook => {
+      if (notebook.id === currentNote.notebook_id) currentNotebook = notebook;
     });
     return currentNotebook;
   }
 
-  //DOES NOT WORK FOR DUPLICATE NOTEBOOKS
   handleSelect(value){
     let updatedNote = this.props.currentNote;
     let notebooks = this.props.notebooks;
@@ -65,7 +62,7 @@ class NotebookSelect extends React.Component {
   render(){
     return(
       <div className="notebook-select-container">
-        <Dropdown options={ this.mapNotebooks() } onChange={ this.handleSelect } value={ this.state } />
+        <Dropdown options={ this.mapNotebooks() } onChange={ this.handleSelect } value={ this.state.title } />
       </div>
     );
   }
