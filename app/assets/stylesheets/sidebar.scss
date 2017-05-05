@@ -26,6 +26,7 @@
   background-image: image-url("sidebar-logo.png");
   background-size: 45px 45px;
   background-repeat: no-repeat;
+  min-height: 45px;
 }
 
 .newnote-button-container {
@@ -205,4 +206,8 @@
 .avatar-image-container:hover {
   opacity: 0.6;
   cursor: pointer;
+}
+
+.filler {
+  height: 100%;
 }
