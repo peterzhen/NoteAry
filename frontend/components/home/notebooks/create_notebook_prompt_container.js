@@ -2,6 +2,13 @@ import { connect } from 'react-redux';
 import CreateNotebookPrompt from './create_notebook_prompt';
 import { createNotebook } from '../../../actions/notebook_actions';
 
+const mapStateToProps = state => {
+  return({
+    notebooks: state.notebooks.notebooks
+  });
+
+};
+
 const mapDispatchToProps = ( dispatch, ownProps ) => {
   return ({
     closeModal: ownProps.closeModal,
@@ -10,6 +17,6 @@ const mapDispatchToProps = ( dispatch, ownProps ) => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(CreateNotebookPrompt);

@@ -21,13 +21,19 @@ class CreateNotebookPrompt extends React.Component {
 
   handleSubmit(e){
     e.preventDefault;
+    const notebookList = [];
+    this.props.notebooks.forEach( notebook => {
+      notebookList.push(notebook.title.toLowerCase());
+    });
     if (this.state.title === ""){
       this.setState({ error: "Title can't be blank!" });
+    } else if ( notebookList.indexOf(this.state.title.toLowerCase()) != -1){
+      this.setState({ error: "A Notebook of that name exists!" });
     } else {
       let newState = {
         title: this.state.title,
         description: this.state.description
-      }
+      };
       this.props.createNotebook(newState);
       this.props.closeModal();
     }
